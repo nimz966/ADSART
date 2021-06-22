@@ -24,8 +24,8 @@
 
             <div class="container mt-3 col">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Add
-                    new
-                    customer</button>
+                    new customer
+                </button>
 
                 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
                     aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -66,7 +66,7 @@
 
                 <div class="row justify-content-center mt-3">
                     <div>
-                        <h2 class="row">Customer Details</h2>
+                        <h2 class="row justify-content-center">Customer Details</h2>
                     </div>
                     <div class="col-12">
 
@@ -79,7 +79,7 @@
                                     <option>75</option>
                                 </select> entries
                             </div>
-                            <div>
+                            <div class="col justify-content-end">
                                 Search <input type="search">
                             </div>
                         </div>
@@ -89,7 +89,7 @@
 
                 </div>
                 <div class="row justify-content-center mt-3">
-                    <table class="table table-striped w-85">
+                    <table class="table table-striped w-85 ml-3">
                         <thead>
                             <tr>
                                 <th>Name</th>

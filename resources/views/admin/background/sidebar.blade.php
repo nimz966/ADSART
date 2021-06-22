@@ -49,17 +49,13 @@
 .left .fas {
     margin: 15px;
     width: 20px;
-
-}
-
-
-i.fas {
     font-size: 15px;
-    vertical-align: middle;
+    vertical-align: middle !important;
+
 }
 
 .item {
-    overflow-x: hidden;
+    overflow: hidden;
     color: #fff;
     padding-top: 15px;
     padding-bottom: 15px;
@@ -101,15 +97,15 @@ i.fas {
 
 
         <div class="item active">
-            <i class="fas fa-fw fa-user-alt"><a href="#customerSubmenu" data-toggle="collapse" class="dropdown">
+            <i class="fas fa-fw fa-user-alt"><a href="#customerSubmenu" data-toggle="collapse" aria-expanded="false">
                     Customer</a>
 
-                <ul class="sub-menu collapse " id="customerSubmenu">
+                <ul class="collapse" id="customerSubmenu">
                     <li>
-                        <a href="newcustomer.php">New Customer</a>
+                        <a href="newcustomer">New Customer</a>
                     </li>
                     <li>
-                        <a href="viewcustomer.php">View Customer</a>
+                        <a href="viewcustomer">View Customer</a>
                     </li>
                 </ul>
             </i>
