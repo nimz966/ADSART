@@ -15,7 +15,13 @@
 </head>
 
 <body>
-    @include('admin.header')
+    @include('admin.background.header')
+    <div class="row">
+        @include('admin.background.sidebar')
+
+        <div class="container mt-3 col">
+        </div>
+    </div>
 </body>
 
 </html>

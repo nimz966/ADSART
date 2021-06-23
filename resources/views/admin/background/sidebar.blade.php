@@ -117,10 +117,10 @@
 
                 <ul class="sub-menu collapse" id="employeeSubmenu">
                     <li>
-                        <a href="newevent.php">New Event</a>
+                        <a href="newevent">New Event</a>
                     </li>
                     <li>
-                        <a href="viewevent.php">View Event</a>
+                        <a href="viewevent">View Event</a>
                     </li>
                 </ul>
             </i>
@@ -132,10 +132,10 @@
 
                 <ul class="sub-menu collapse" id="empSubmenu">
                     <li>
-                        <a href="newemployee.php">New Employee</a>
+                        <a href="newemployee">New Employee</a>
                     </li>
                     <li>
-                        <a href="viewemployee.php">View Employee</a>
+                        <a href="viewemployee">View Employee</a>
                     </li>
                 </ul>
             </i>
@@ -147,7 +147,7 @@
 
                 <ul class="sub-menu collapse" id="teamSubmenu">
                     <li>
-                        <a href="manageteam.php">Manage Team</a>
+                        <a href="manageteam">Manage Team</a>
                     </li>
                 </ul>
             </i>
@@ -159,10 +159,10 @@
 
                 <ul class="sub-menu collapse" id="noticeSubmenu">
                     <li>
-                        <a href="newnotice.php">New Notice</a>
+                        <a href="newnotice">New Notice</a>
                     </li>
                     <li>
-                        <a href="viewnotice.php">View Notice</a>
+                        <a href="viewnotice">View Notice</a>
                     </li>
                 </ul>
             </i>
@@ -174,10 +174,10 @@
 
                 <ul class="sub-menu collapse" id="usersSubmenu">
                     <li>
-                        <a href="changeuserlevel.php">Change User Level</a>
+                        <a href="changeuserlevel">Change User Level</a>
                     </li>
                     <li>
-                        <a href="changepassword.php">Change Password</a>
+                        <a href="changepassword">Change Password</a>
                     </li>
                 </ul>
             </i>
@@ -189,10 +189,10 @@
 
                 <ul class="sub-menu collapse" id="reportsSubmenu">
                     <li>
-                        <a href="eventreport.php">Event Reports</a>
+                        <a href="eventreport">Event Reports</a>
                     </li>
                     <li>
-                        <a href="employeeeventreport.php">Employee Event Reports</a>
+                        <a href="employeeeventreport">Employee Event Reports</a>
                     </li>
                 </ul>
             </i>
