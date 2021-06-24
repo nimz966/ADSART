@@ -14,56 +14,60 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/login', function () {
-    return view('welcome');
+    return view('login');
 });
+
 Route::get('/home', function () {
     return view('admin/home');
-});
-Route::get('/newcustomer', function () {
-    return view('admin/newcustomer');
-});
-Route::get('/viewcustomer', function () {
-    return view('admin/viewcustomer');
-});
-Route::get('/newevent', function () {
-    return view('admin/newevent');
-});
-Route::get('/createdeventdetails', function () {
-    return view('admin/createdeventdetails');
-});
-Route::get('/viewevent', function () {
-    return view('admin/viewevent');
-});
-Route::get('/newemployee', function () {
-    return view('admin/newemployee');
-});
-Route::get('/viewemployee', function () {
-    return view('admin/viewemployee');
-});
-Route::get('/manageteam', function () {
-    return view('admin/manageteam');
-});
-Route::get('/selectpositions', function () {
-    return view('admin/selectpositions');
-});
-Route::get('/assignemployee', function () {
-    return view('admin/assignemployee');
-});
+})->name('home');
+
+Route::get('/customers', function () {
+    return view('admin/customers');
+})->name('customers');
+
+Route::get('/events', function () {
+    return view('admin/events');
+})->name('events');
+
+Route::get('/event/{id}', function () {
+    return view('admin/event-details');
+})->name('event');
+
+Route::get('/employees', function () {
+    return view('admin/employees');
+})->name('employees');
+
+Route::get('/profile', function () {
+    return view('profile');
+})->name('profile');
+
+Route::get('/teams', function () {
+    return view('admin/teams');
+})->name('teams');
+
+Route::get('/team/{id}', function () {
+    return view('admin/team-details');
+})->name('team-details');
+
+Route::get('/event/{id}/assignment', function () {
+    return view('admin/employee-assignment');
+})->name('employee-assignment');
+
 Route::get('/newnotice', function () {
     return view('admin/newnotice');
 });
-Route::get('/viewnotice', function () {
-    return view('admin/viewnotice');
-});
+Route::get('/notices', function () {
+    return view('admin/notices');
+})->name('notices');
+
 Route::get('/changeuserlevel', function () {
     return view('admin/changeuserlevel');
-});
-Route::get('/changepassword', function () {
-    return view('admin/changepassword');
-});
-Route::get('/eventreport', function () {
-    return view('admin/eventreport');
-});
-Route::get('/employeeeventreport', function () {
-    return view('admin/employeeeventreport');
-});
+})->name('changeuserlevel');
+
+Route::get('/event-report', function () {
+    return view('admin/event-report');
+})->name('event-report');
+
+Route::get('/employee-event-report', function () {
+    return view('admin/employee-event-report');
+})->name('employee-event-report');
