@@ -10,13 +10,11 @@
 
         <div class="row mt-3">
             <div class="col-6">
-                Employee <select class="form-group w-75">
+                <select class="form-group w-75 h-75 mr-3">
+                    <option>Select Employee</option>
                     <option></option>
                 </select>
-            </div>
-
-            <div class="col-6">
-                <a href="" class="btn btn-primary">Search</a>
+                <a href="" class="btn btn-primary h-75">Search</a>
             </div>
         </div>
 
@@ -24,28 +22,34 @@
 
         <h4 class="row justify-content-center mt-3 mb-4"> this is for Date and time</h4>
 
-        <div class="row justify-content-center mt-3">
-            <table class=" table table-striped w-100 ml-3">
-                <thead>
-                    <tr>
-                        <th>Employee Id</th>
-                        <th>Event Name</th>
-                        <th>Date</th>
-                        <th>Status</th>
-                        <th>Position</th>
+        <div class="table100 ver1 m-b-110">
+            <div class="table100-head">
+                <table>
+                    <thead>
+                        <tr class="row100 head">
+                            <th class="cell100 column1">Employee Id</th>
+                            <th class="cell100 column2">Event Name</th>
+                            <th class="cell100 column3">Date</th>
+                            <th class="cell100 column4">Status</th>
+                            <th class="cell100 column5">Position</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
 
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table100-body js-pscroll">
+                <table>
+                    <tbody>
+                        <tr class="row100 body">
+                            <td class="cell100 column1"></td>
+                            <td class="cell100 column2"></td>
+                            <td class="cell100 column3"></td>
+                            <td class="cell100 column4"></td>
+                            <td class="cell100 column5"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

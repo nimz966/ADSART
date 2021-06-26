@@ -6,11 +6,11 @@
 
         <div class="row justify-content-center mt-3">
             <h2 class="row justify-content-center mt-3">Event:</h2>
-
-
-            <h4 class="row justify-content-center mt-3">Select the number of members for each position </h4>
-
         </div>
+        <div class="row justify-content-center mb-3">
+            <h4 class="row justify-content-center mt-3">Select the number of members for each position </h4>
+        </div>
+
         <div class="row pt-3">
             <div class="col-4">
                 <div class="form-check">

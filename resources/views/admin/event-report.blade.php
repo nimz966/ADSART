@@ -9,45 +9,59 @@
         <div class="row justify-content-center mt-3">
             <div class="form-group col-4">
                 <lable>From Date</lable>
-                <input type="date" class="form-control w-75">
+                <input type="date" class="form-control w-75 h-50">
             </div>
             <div class="form-group col-4">
                 <lable>To Date</lable>
-                <input type="date" class="form-control w-75">
+                <input type="date" class="form-control w-75 h-50">
             </div>
             <div class="form-group col-4">
                 <br>
-                <a href="" class="btn btn-primary">Search</a>
+                <a href="" class="btn btn-primary h-50">Search</a>
             </div>
         </div>
 
-        <h2 class="row justify-content-center mt-3">Event Management Syatem-Event Report</h2>
+        <div>
+            <div>
+                <h2 class="row justify-content-center mt-3">Event Management Syatem - Event Report</h2>
+            </div>
+            <div>
+                <h2 class="row justify-content-center">This is for date and time</h2>
+            </div>
 
-        <h4 class="row justify-content-center mt-3 mb-5"> this is for Date and time</h4>
+            <div class="wrap-table100">
+                <div class="table100 ver1 m-b-110">
+                    <div class="table100-head">
+                        <table>
+                            <thead>
+                                <tr class="row100 head">
+                                    <th class="cell100 column1">Event Id</th>
+                                    <th class="cell100 column2">Event Name</th>
+                                    <th class="cell100 column3">Date</th>
+                                    <th class="cell100 column4">Status</th>
+                                    <th class="cell100 column5">Payment Status</th>
+                                    <th class="cell100 column6">No of Cameras</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
 
-        <div class="row justify-content-center mt-3">
-            <table class=" table table-striped w-100  ml-3">
-                <thead>
-                    <tr>
-                        <th>Event Id</th>
-                        <th>Event Name</th>
-                        <th>Date</th>
-                        <th>Status</th>
-                        <th>Payment Status</th>
-                        <th>Number of Cameras</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
+                    <div class="table100-body js-pscroll">
+                        <table>
+                            <tbody>
+                                <tr class="row100 body">
+                                    <td class="cell100 column1"></td>
+                                    <td class="cell100 column2"></td>
+                                    <td class="cell100 column3"></td>
+                                    <td class="cell100 column4"></td>
+                                    <td class="cell100 column5"></td>
+                                    <td class="cell100 column6"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

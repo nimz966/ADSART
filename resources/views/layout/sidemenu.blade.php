@@ -58,17 +58,10 @@
         </a>
     </li>
 
-    <!-- Nav Item - Change user level -->
-    <li class="nav-item active">
-        <a class="nav-link" href="{{route('changeuserlevel')}}">
-            <i class="fas fa-fw fa-user-tag"></i>
-            <span>Users</span>
-        </a>
-    </li>
-
     <!-- Nav Item - Reports Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+            aria-controls="collapseTwo">
             <i class="fas fa-fw fa-file-medical-alt"></i>
             <!-- <i class="fas fa-file-medical-alt"></i> -->
             <span>Reports</span>
