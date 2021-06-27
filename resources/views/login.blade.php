@@ -27,40 +27,27 @@
     .main-section {
         margin: 0 auto;
         margin-top: 40px;
-        padding: 0;
+        padding: 20px;
+        font-size: 13px;
+        color: darkgray;
     }
 
     .modal-dialog {
         float: right;
         width: 1000px;
-        padding-right: 50px;
+        padding-right: 100px;
     }
 
     .modal-content {
         background-color: #434e5a;
-        opacity: 0.8;
         padding: 10px;
         border-radius: 10px;
-    }
-
-    .user-img img {
-        height: 100px;
-        width: 100px;
-    }
-
-    .user-img {
-        margin-top: -40px;
-        margin-bottom: 35px;
-        text-align: center;
     }
 
     .form-group {
         padding: 10px;
     }
 
-    body {
-        font-family: 'Nunito', sans-serif;
-    }
 
     #phone {
         text-align: left !important;
@@ -68,6 +55,28 @@
 
     #navitem {
         padding-right: 20px;
+        width: 200px;
+        height: 35px;
+    }
+
+    .form-control {
+        height: 25px;
+        font-size: 13px;
+    }
+
+    #login {
+        width: 60px;
+        height: 26px;
+        font-size: 13px;
+        display: grid;
+    }
+
+    .form-group {
+        padding: 15px;
+    }
+
+    .navbar-brand {
+        font-family: sans-serif;
     }
     </style>
 </head>
@@ -90,14 +99,15 @@
                         <input type="password" class="form-control h-75" placeholder="Enter password">
                     </li>
                     <li class="nav-item" id="navitem">
-                        <button type="submit" class="btn btn-primary h-75 mb-2">Login</button>
+                        <button type="submit" id="login" class="btn btn-primary btn-sm">Login</button>
                     </li>
                 </ul>
             </form>
         </div>
 
     </nav>
-    <div class="modal-dialog">
+
+    <div class="modal-dialog col-6">
         <div class="col main-section">
             <div class="modal-content">
 
@@ -125,7 +135,7 @@
                                 <div class="col text-center">
                                     <input type="radio" id="customRadio1" name="customRadio"
                                         class="custom-control-input">
-                                    <label class="custom-control-label mr-4" for="customRadio1">CEO</label>
+                                    <label class="custom-control-label" for="customRadio1">CEO</label>
                                 </div>
                                 <div class="col text-center">
                                     <input type="radio" id="customRadio2" name="customRadio"
@@ -133,7 +143,7 @@
                                     <label class="custom-control-label" for="customRadio2">Manager</label>
                                 </div>
                                 <div class="col text-center">
-                                    <input type="radio" id="customRadio1" name="customRadio"
+                                    <input type="radio" id="customRadio3" name="customRadio"
                                         class="custom-control-input">
                                     <label class="custom-control-label" for="customRadio3">Employee</label>
                                 </div>
@@ -143,7 +153,8 @@
                             <input type="password" class="form-control" placeholder="Enter password">
                         </div>
                         <div class="col text-center">
-                            <button type="submit" class="btn btn-primary">Register</button>
+                            <button type="submit" class="btn btn-primary btn-sm"
+                                id="register"><small>Register</small></button>
                         </div>
 
                     </form>
