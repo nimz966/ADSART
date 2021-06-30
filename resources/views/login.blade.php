@@ -81,14 +81,18 @@
     </style>
 </head>
 
+<!-- Navbar -->
+
 <body class="antialiased">
     <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+        <!-- Nav Brand -->
         <div class="container-fluid">
             <div class="col">
                 <a class="navbar-brand" href="#"><img src="img/logo.png" height="40"> </a>
                 <a class="navbar-brand" href="#"> ADS ART Event Management System</a>
             </div>
         </div>
+        <!-- Login Form -->
         <div class="collapse navbar-collapse" id="navbarNav">
             <form>
                 <ul class="navbar-nav">
@@ -104,29 +108,34 @@
                 </ul>
             </form>
         </div>
-
     </nav>
 
+    <!-- registration Form -->
     <div class="modal-dialog col-6">
         <div class="col main-section">
             <div class="modal-content">
 
                 <div class="col-12 form-input">
                     <form>
+                        <!-- User Name -->
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="User name">
                         </div>
+                        <!-- Address -->
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Enter address">
                         </div>
+                        <!-- Contact Number -->
                         <div class="form-group">
                             <input type="tel" id="phone" class="form-control" placeholder="Enter contact number"
                                 pattern="[0-9]{3} [0-9]{7}">
                             <small>Format: 011 8645678</small>
                         </div>
+                        <!-- Email -->
                         <div class="form-group">
                             <input type="email" class="form-control" placeholder="Enter email">
                         </div>
+                        <!-- User Types -->
                         <div>
                             <div class="row m-1">
                                 <lable>User Type</lable>
@@ -149,9 +158,11 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- Password -->
                         <div class="form-group">
                             <input type="password" class="form-control" placeholder="Enter password">
                         </div>
+                        <!-- registration -->
                         <div class="col text-center">
                             <button type="submit" class="btn btn-primary btn-sm"
                                 id="register"><small>Register</small></button>

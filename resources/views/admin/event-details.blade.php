@@ -3,12 +3,16 @@
 @section('content')
 <div class="container-fluid">
     <div class="container mt-3 col">
+        <!-- Event name heading -->
         <div class="row row justify-content-center mt-3">
             <h2 class="mb-3"> Event:</h2>
         </div>
+
         <div class="row">
             <div class="col-6">
+                <!-- Event details table-->
                 <table class="table table-hover">
+                    <!-- Table body-->
                     <tbody>
                         <tr>
                             <td>Event Date</td>
@@ -55,12 +59,17 @@
                         </tr>
                     </tbody>
                 </table>
+                <!-- Button for view calender-->
                 <a href="#" data-dismiss="modal" class="btn btn-primary">View Calender</a>
+                <!-- Button for Confirm Event-->
                 <a href="#" data-dismiss="modal" class="btn btn-primary">Confirm</a>
             </div>
 
+
             <div class="col-6">
+                <!-- Customer details table -->
                 <table class="table table-hover">
+                    <!-- table body -->
                     <tbody>
                         <tr>
                             <td>Customer Name</td>
