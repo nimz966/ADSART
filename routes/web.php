@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RegisterController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -71,3 +73,9 @@ Route::get('/event-report', function () {
 Route::get('/employee-event-report', function () {
     return view('admin/employee-event-report');
 })->name('employee-event-report');
+
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
+
+Route::post('/userDetails', [RegisterController::class, 'store']);

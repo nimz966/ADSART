@@ -10,65 +10,64 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="public/css/style" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
     <!-- Styles -->
     <style>
-    /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
-    body {
-        background: url('img/bc.png') no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        background-size: cover;
-        -o-background-size: cover;
-    }
+        /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+        body {
+            background: url('img/bc.png') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            background-size: cover;
+            -o-background-size: cover;
+        }
 
-    .main-section {
-        margin: 0 auto;
-        margin-top: 40px;
-        padding: 0;
-    }
+        .main-section {
+            margin: 0 auto;
+            margin-top: 40px;
+            padding: 0;
+        }
 
-    .modal-dialog {
-        float: right;
-        width: 1000px;
-        padding-right: 50px;
-    }
+        .modal-dialog {
+            float: right;
+            width: 1000px;
+            padding-right: 50px;
+        }
 
-    .modal-content {
-        background-color: #434e5a;
-        opacity: 0.8;
-        padding: 10px;
-        border-radius: 10px;
-    }
+        .modal-content {
+            background-color: #434e5a;
+            opacity: 0.8;
+            padding: 10px;
+            border-radius: 10px;
+        }
 
-    .user-img img {
-        height: 100px;
-        width: 100px;
-    }
+        .user-img img {
+            height: 100px;
+            width: 100px;
+        }
 
-    .user-img {
-        margin-top: -40px;
-        margin-bottom: 35px;
-        text-align: center;
-    }
+        .user-img {
+            margin-top: -40px;
+            margin-bottom: 35px;
+            text-align: center;
+        }
 
-    .form-group {
-        padding: 10px;
-    }
+        .form-group {
+            padding: 10px;
+        }
 
-    body {
-        font-family: 'Nunito', sans-serif;
-    }
+        body {
+            font-family: 'Nunito', sans-serif;
+        }
 
-    #phone {
-        text-align: left !important;
-    }
+        #phone {
+            text-align: left !important;
+        }
 
-    #navitem {
-        padding-right: 20px;
-    }
+        #navitem {
+            padding-right: 20px;
+        }
     </style>
 </head>
 
@@ -93,6 +92,9 @@
                         <button type="submit" class="btn btn-primary h-75 mb-2">Login</button>
                     </li>
                 </ul>
+                @if(session('status'))
+                <div class="alert alert-success">{{(session('status'))}}</div>
+                @endif
             </form>
         </div>
 
@@ -102,20 +104,20 @@
             <div class="modal-content">
 
                 <div class="col-12 form-input">
-                    <form>
+                    <form method="post" action="{{url ('userDetails') }}">
+                        {{csrf_field()}}
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="User name">
+                            <input type="text" class="form-control" name="username" placeholder="User name">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Enter address">
+                            <input type="text" class="form-control" name="address" placeholder="Enter address">
                         </div>
                         <div class="form-group">
-                            <input type="tel" id="phone" class="form-control" placeholder="Enter contact number"
-                                pattern="[0-9]{3} [0-9]{7}">
+                            <input type="tel" id="phone" class="form-control" name="phone_no" placeholder="Enter contact number" pattern="[0-9]{3} [0-9]{7}">
                             <small>Format: 011 8645678</small>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Enter email">
+                            <input type="email" class="form-control" name='email' placeholder="Enter email">
                         </div>
                         <div>
                             <div class="row m-1">
@@ -123,24 +125,21 @@
                             </div>
                             <div class="row">
                                 <div class="col text-center">
-                                    <input type="radio" id="customRadio1" name="customRadio"
-                                        class="custom-control-input">
+                                    <input type="radio" id="customRadio1" value="ceo" name="user_type" class="custom-control-input">
                                     <label class="custom-control-label mr-4" for="customRadio1">CEO</label>
                                 </div>
                                 <div class="col text-center">
-                                    <input type="radio" id="customRadio2" name="customRadio"
-                                        class="custom-control-input">
+                                    <input type="radio" id="customRadio2" value="manager" name="user_type" class="custom-control-input">
                                     <label class="custom-control-label" for="customRadio2">Manager</label>
                                 </div>
                                 <div class="col text-center">
-                                    <input type="radio" id="customRadio1" name="customRadio"
-                                        class="custom-control-input">
+                                    <input type="radio" id="customRadio1" value="employee" name="user_type" class="custom-control-input">
                                     <label class="custom-control-label" for="customRadio3">Employee</label>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Enter password">
+                            <input type="password" class="form-control" name='password' placeholder="Enter password">
                         </div>
                         <div class="col text-center">
                             <button type="submit" class="btn btn-primary">Register</button>
