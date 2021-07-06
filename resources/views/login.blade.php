@@ -84,6 +84,7 @@
 <!-- Navbar -->
 
 <body class="antialiased">
+
     <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
         <!-- Nav Brand -->
         <div class="container-fluid">
