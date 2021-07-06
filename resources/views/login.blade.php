@@ -26,40 +26,27 @@
         .main-section {
             margin: 0 auto;
             margin-top: 40px;
-            padding: 0;
+            padding: 20px;
+            font-size: 13px;
+            color: darkgray;
         }
 
         .modal-dialog {
             float: right;
             width: 1000px;
-            padding-right: 50px;
+            padding-right: 100px;
         }
 
         .modal-content {
             background-color: #434e5a;
-            opacity: 0.8;
             padding: 10px;
             border-radius: 10px;
-        }
-
-        .user-img img {
-            height: 100px;
-            width: 100px;
-        }
-
-        .user-img {
-            margin-top: -40px;
-            margin-bottom: 35px;
-            text-align: center;
         }
 
         .form-group {
             padding: 10px;
         }
 
-        body {
-            font-family: 'Nunito', sans-serif;
-        }
 
         #phone {
             text-align: left !important;
@@ -67,18 +54,44 @@
 
         #navitem {
             padding-right: 20px;
+            width: 200px;
+            height: 35px;
+        }
+
+        .form-control {
+            height: 25px;
+            font-size: 13px;
+        }
+
+        #login {
+            width: 60px;
+            height: 26px;
+            font-size: 13px;
+            display: grid;
+        }
+
+        .form-group {
+            padding: 15px;
+        }
+
+        .navbar-brand {
+            font-family: sans-serif;
         }
     </style>
 </head>
 
+<!-- Navbar -->
+
 <body class="antialiased">
     <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+        <!-- Nav Brand -->
         <div class="container-fluid">
             <div class="col">
                 <a class="navbar-brand" href="#"><img src="img/logo.png" height="40"> </a>
                 <a class="navbar-brand" href="#"> ADS ART Event Management System</a>
             </div>
         </div>
+        <!-- Login Form -->
         <div class="collapse navbar-collapse" id="navbarNav">
             <form>
                 <ul class="navbar-nav">
@@ -89,7 +102,7 @@
                         <input type="password" class="form-control h-75" placeholder="Enter password">
                     </li>
                     <li class="nav-item" id="navitem">
-                        <button type="submit" class="btn btn-primary h-75 mb-2">Login</button>
+                        <button type="submit" id="login" class="btn btn-primary btn-sm">Login</button>
                     </li>
                 </ul>
                 @if(session('status'))
@@ -97,28 +110,35 @@
                 @endif
             </form>
         </div>
-
     </nav>
-    <div class="modal-dialog">
+
+    <!-- registration Form -->
+    <div class="modal-dialog col-6">
         <div class="col main-section">
             <div class="modal-content">
 
                 <div class="col-12 form-input">
                     <form method="post" action="{{url ('userDetails') }}">
                         {{csrf_field()}}
+
+                        <!-- User Name -->
                         <div class="form-group">
                             <input type="text" class="form-control" name="username" placeholder="User name">
                         </div>
+                        <!-- Address -->
                         <div class="form-group">
                             <input type="text" class="form-control" name="address" placeholder="Enter address">
                         </div>
+                        <!-- Contact Number -->
                         <div class="form-group">
                             <input type="tel" id="phone" class="form-control" name="phone_no" placeholder="Enter contact number" pattern="[0-9]{3} [0-9]{7}">
                             <small>Format: 011 8645678</small>
                         </div>
+                        <!-- Email -->
                         <div class="form-group">
                             <input type="email" class="form-control" name='email' placeholder="Enter email">
                         </div>
+                        <!-- User Types -->
                         <div>
                             <div class="row m-1">
                                 <lable>User Type</lable>
@@ -126,23 +146,25 @@
                             <div class="row">
                                 <div class="col text-center">
                                     <input type="radio" id="customRadio1" value="ceo" name="user_type" class="custom-control-input">
-                                    <label class="custom-control-label mr-4" for="customRadio1">CEO</label>
+                                    <label class="custom-control-label" for="customRadio1">CEO</label>
                                 </div>
                                 <div class="col text-center">
                                     <input type="radio" id="customRadio2" value="manager" name="user_type" class="custom-control-input">
                                     <label class="custom-control-label" for="customRadio2">Manager</label>
                                 </div>
                                 <div class="col text-center">
-                                    <input type="radio" id="customRadio1" value="employee" name="user_type" class="custom-control-input">
+                                    <input type="radio" id="customRadio3" value="employee" name="user_type" class="custom-control-input">
                                     <label class="custom-control-label" for="customRadio3">Employee</label>
                                 </div>
                             </div>
                         </div>
+                        <!-- Password -->
                         <div class="form-group">
                             <input type="password" class="form-control" name='password' placeholder="Enter password">
                         </div>
+                        <!-- registration -->
                         <div class="col text-center">
-                            <button type="submit" class="btn btn-primary">Register</button>
+                            <button type="submit" class="btn btn-primary btn-sm" id="register"><small>Register</small></button>
                         </div>
 
                     </form>

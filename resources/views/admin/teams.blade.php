@@ -3,27 +3,26 @@
 @section('content')
 
 <div class="container mt-3">
-
+    <!-- Heading Event Details -->
     <div class="row justify-content-center m-3">
         <div>
             <h2 class="row justify-content-center">Event Details</h2>
         </div>
     </div>
-
+    <!-- Event Details search section-->
     <div class="wrap-table100">
-
         <div class="table-title">
             <div class="row">
+                <!-- Select entries -->
                 <div class="col-sm-8 mb-4">
-
                     Show <select>
                         <option>10</option>
                         <option>25</option>
                         <option>50</option>
                         <option>75</option>
                     </select> entries
-
                 </div>
+                <!-- Search bar -->
                 <div class="col-sm-4 mb-4">
                     <div class="search-box">
                         <i class="fa fa-search" aria-hidden="true"></i>
@@ -32,7 +31,9 @@
                 </div>
             </div>
         </div>
+        <!-- Event Delails Table -->
         <div class="table100 ver1 m-b-110">
+            <!-- Table Head -->
             <div class="table100-head">
                 <table>
                     <thead>
@@ -47,7 +48,7 @@
                     </thead>
                 </table>
             </div>
-
+            <!-- Table body -->
             <div class="table100-body js-pscroll">
                 <table>
                     <tbody>
