@@ -13,7 +13,7 @@ class RegisterController extends Controller
         $user = new user_new;
         $user->user_name = $request->input('username');
         $user->address = $request->input('address');
-        $user->phone_no = $request->input('phone_no');
+        $user->phone_no = $request->input('phone_no');  
         $user->user_type = $request->input('user_type');
         $user->email = $request->input('email');
         $user->save();

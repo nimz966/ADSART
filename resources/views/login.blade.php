@@ -112,66 +112,7 @@
         </div>
     </nav>
 
-    <!-- registration Form -->
-    <div class="modal-dialog col-6">
-        <div class="col main-section">
-            <div class="modal-content">
 
-                <div class="col-12 form-input">
-                    <form method="post" action="{{url ('userDetails') }}">
-                        {{csrf_field()}}
-
-                        <!-- User Name -->
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="username" placeholder="User name">
-                        </div>
-                        <!-- Address -->
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="address" placeholder="Enter address">
-                        </div>
-                        <!-- Contact Number -->
-                        <div class="form-group">
-                            <input type="tel" id="phone" class="form-control" name="phone_no" placeholder="Enter contact number" pattern="[0-9]{3} [0-9]{7}">
-                            <small>Format: 011 8645678</small>
-                        </div>
-                        <!-- Email -->
-                        <div class="form-group">
-                            <input type="email" class="form-control" name='email' placeholder="Enter email">
-                        </div>
-                        <!-- User Types -->
-                        <div>
-                            <div class="row m-1">
-                                <lable>User Type</lable>
-                            </div>
-                            <div class="row">
-                                <div class="col text-center">
-                                    <input type="radio" id="customRadio1" value="ceo" name="user_type" class="custom-control-input">
-                                    <label class="custom-control-label" for="customRadio1">CEO</label>
-                                </div>
-                                <div class="col text-center">
-                                    <input type="radio" id="customRadio2" value="manager" name="user_type" class="custom-control-input">
-                                    <label class="custom-control-label" for="customRadio2">Manager</label>
-                                </div>
-                                <div class="col text-center">
-                                    <input type="radio" id="customRadio3" value="employee" name="user_type" class="custom-control-input">
-                                    <label class="custom-control-label" for="customRadio3">Employee</label>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Password -->
-                        <div class="form-group">
-                            <input type="password" class="form-control" name='password' placeholder="Enter password">
-                        </div>
-                        <!-- registration -->
-                        <div class="col text-center">
-                            <button type="submit" class="btn btn-primary btn-sm" id="register"><small>Register</small></button>
-                        </div>
-
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
 </body>
 
 </html>
