@@ -109,31 +109,33 @@
 
                 <!-- modal body -->
                 <div class="modal-body">
-                    <form role="form" method="" action="">
-                        <input type="hidden" name="_token" value="">
+                    <form role="form" method="post" action="/insertCustomer">
+                        {{csrf_field()}}
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <!-- Enter customer name -->
                         <div class="form-group">
                             <lable>Customer name</lable>
-                            <input type="text" class="form-control">
+                            <input type="text" name="user_name" class="form-control">
                         </div>
 
                         <!-- Enter address -->
                         <div class="form-group">
                             <lable>Address</lable>
-                            <input type="text" class="form-control">
+                            <input type="text" name="address" class="form-control">
                         </div>
 
                         <!-- Enter contact number -->
                         <div class="form-group">
                             <lable>Contact number</lable>
-                            <input type="tel" id="phone" class="form-control" pattern="[0-9]{3} [0-9]{7}">
+                            <input type="tel" name="phone_no" id="phone" class="form-control"
+                                pattern="[0-9]{3} [0-9]{7}">
                             <small>Format: 011 8645678</small>
                         </div>
 
                         <!-- Enter email address-->
                         <div class="form-group">
                             <lable>Email</lable>
-                            <input type="email" class="form-control">
+                            <input type="email" name="email" class="form-control">
                         </div>
                         <div class="modal-footer">
                             <div class="form-group">

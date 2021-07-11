@@ -10,80 +10,79 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="public/css/style" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
     <!-- Styles -->
     <style>
-        /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
-        body {
-            background: url('img/bc.png') no-repeat center center fixed;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            background-size: cover;
-            -o-background-size: cover;
-        }
+    /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+    body {
+        background: url('img/bc.png') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+    }
 
-        .main-section {
-            margin: 0 auto;
-            margin-top: 40px;
-            padding: 20px;
-            font-size: 13px;
-            color: darkgray;
-        }
+    .main-section {
+        margin: 0 auto;
+        margin-top: 40px;
+        padding: 20px;
+        font-size: 13px;
+        color: darkgray;
+    }
 
-        .modal-dialog {
-            float: right;
-            width: 1000px;
-            padding-right: 100px;
-        }
+    .modal-dialog {
+        float: right;
+        width: 1000px;
+        padding-right: 100px;
+    }
 
-        .modal-content {
-            background-color: #434e5a;
-            padding: 10px;
-            border-radius: 10px;
-        }
+    .modal-content {
+        background-color: #434e5a;
+        padding: 10px;
+        border-radius: 10px;
+    }
 
-        .form-group {
-            padding: 10px;
-        }
+    .form-group {
+        padding: 10px;
+    }
 
+    #phone {
+        text-align: left !important;
+    }
 
-        #phone {
-            text-align: left !important;
-        }
+    #navitem {
+        padding-right: 20px;
+        width: 200px;
+        height: 35px;
+    }
 
-        #navitem {
-            padding-right: 20px;
-            width: 200px;
-            height: 35px;
-        }
+    .form-control {
+        height: 25px;
+        font-size: 13px;
+    }
 
-        .form-control {
-            height: 25px;
-            font-size: 13px;
-        }
+    #login {
+        width: 60px;
+        height: 26px;
+        font-size: 13px;
+        display: grid;
+    }
 
-        #login {
-            width: 60px;
-            height: 26px;
-            font-size: 13px;
-            display: grid;
-        }
+    .form-group {
+        padding: 15px;
+    }
 
-        .form-group {
-            padding: 15px;
-        }
-
-        .navbar-brand {
-            font-family: sans-serif;
-        }
+    .navbar-brand {
+        font-family: sans-serif;
+    }
     </style>
 </head>
 
 <!-- Navbar -->
 
 <body class="antialiased">
-
     <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
         <!-- Nav Brand -->
         <div class="container-fluid">

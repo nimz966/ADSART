@@ -9,6 +9,7 @@ class user_new extends Model
 {
     use HasFactory; 
     protected $table = "users";
+    protected $primaryKey = 'user_id';
     protected $fillable =['user_id', 'user_name', 'address' ,'phone_no', 'email', 'user_type', 'password'];
 
 }

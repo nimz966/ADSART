@@ -8,6 +8,9 @@
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalForm">
         Add New Customer
     </button>
+    @if(session('status'))
+    <div class="alert alert-success">{{(session('status'))}}</div>
+    @endif
     <!-- Modal HTML Markup -->
     <div id="ModalForm" class="modal fade bd-example-modal-lg">
         <div class="modal-dialog" role="document">
@@ -17,27 +20,30 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
                 <div class="modal-body">
-                    <form role="form" method="" action="">
-                        <input type="hidden" name="_token" value="">
+
+                    <form method="post" action="/saveTask">
+                        {{csrf_field()}}
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-group">
                             <lable>Customer name</lable>
-                            <input type="text" class="form-control">
+                            <input type="text" name="user_name" class="form-control">
                         </div>
 
                         <div class="form-group">
                             <lable>Address</lable>
-                            <input type="text" class="form-control">
+                            <input type="text" name="address" class="form-control">
                         </div>
 
                         <div class="form-group">
                             <lable>Contact number</lable>
-                            <input type="tel" id="phone" class="form-control" pattern="[0-9]{3} [0-9]{7}">
-                            <small>Format: 011 8645678</small>
+                            <input type="tel" name="phone_no" id="phone" class="form-control"
+                                pattern="[0-9]{3} [0-9]{7}">
+                            <small>Format: 011 8645678</small><br>
                         </div>
 
                         <div class="form-group">
                             <lable>Email</lable>
-                            <input type="email" class="form-control">
+                            <input type="email" name="email" class="form-control">
                         </div>
                         <div class="modal-footer">
                             <div class="form-group">
@@ -99,17 +105,20 @@
             <div class="table100-body js-pscroll">
                 <table>
                     <tbody>
+
+                        @foreach($tasks as $task)
                         <tr class="row100 body">
-                            <td class="cell100 column1"></td>
-                            <td class="cell100 column2"></td>
-                            <td class="cell100 column3"></td>
-                            <td class="cell100 column4"></td>
+                            <td class="cell100 column1">{{$task->user_name}}</td>
+                            <td class="cell100 column2">{{$task->address}}</td>
+                            <td class="cell100 column3">{{$task->phone_no}}</td>
+                            <td class="cell100 column4">{{$task->email}}</td>
                             <td class="cell100 column5">
                                 <ul class="list-inline m-0">
                                     <!-- Button trigger modal for edit-->
                                     <li class="list-inline-item" data-toggle="modal" data-placement="bottom"
-                                        title="Edit" data-target="#exampleModal"><a id="edit"><i
-                                                class="fa fa-edit"></i></a>
+                                        title="Edit" data-target="#exampleModal">
+                                        <a id="edit"><i class="fa fa-edit"></i></a>
+
                                     </li>
 
                                     <!-- modal -->
@@ -123,29 +132,35 @@
                                                     <button type="button" class="close" data-dismiss="modal"
                                                         aria-hidden="true">×</button>
                                                 </div>
+
                                                 <div class="modal-body">
-                                                    <form role="form" method="" action="">
-                                                        <input type="hidden" name="_token" value="">
+                                                    <form role="form" method="post" action="">
+                                                        {{csrf_field()}}
+                                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                         <div class="form-group">
                                                             <lable>Customer name</lable>
-                                                            <input type="text" class="form-control">
+                                                            <input type="text" name="user_name" class="form-control"
+                                                                value="" />
                                                         </div>
 
                                                         <div class="form-group">
                                                             <lable>Address</lable>
-                                                            <input type="text" class="form-control">
+                                                            <input type="text" name="address" class="form-control"
+                                                                value="" />
                                                         </div>
 
                                                         <div class="form-group">
                                                             <lable>Contact number</lable>
-                                                            <input type="tel" id="phone" class="form-control"
-                                                                pattern="[0-9]{3} [0-9]{7}">
+                                                            <input type="tel" id="phone" name="phone_no"
+                                                                class="form-control" pattern="[0-9]{3} [0-9]{7}"
+                                                                value="" />
                                                             <small>Format: 011 8645678</small>
                                                         </div>
 
                                                         <div class="form-group">
                                                             <lable>Email</lable>
-                                                            <input type="email" class="form-control">
+                                                            <input type="email" name="email" class="form-control"
+                                                                value="" />
                                                         </div>
 
                                                         <div class="form-group">
@@ -155,8 +170,8 @@
                                                         <div class="modal-footer">
                                                             <div class="form-group">
                                                                 <div>
-                                                                    <button type="submit"
-                                                                        class="btn btn-primary">Add</button>
+                                                                    <button type="submit" class="btn btn-primary">Save
+                                                                        Changes</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -180,18 +195,21 @@
                                                 <div class="modal-body">
                                                     Are you sure that you want to permanently delete this record ?
                                                 </div>
+
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-primary btn-sm"
-                                                        data-dismiss="modal">Yes</button>
+                                                    <a href="/deleteUser/{{$task->user_id}}" type="button"
+                                                        class="btn btn-primary btn-sm">Yes </a>
                                                     <button type="button" class="btn btn-primary btn-sm"
                                                         data-dismiss="modal">No</button>
                                                 </div>
+
                                             </div>
                                         </div>
                                     </div>
                                 </ul>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
