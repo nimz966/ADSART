@@ -47,7 +47,6 @@
             padding: 10px;
         }
 
-
         #phone {
             text-align: left !important;
         }
@@ -93,20 +92,22 @@
         </div>
         <!-- Login Form -->
         <div class="collapse navbar-collapse" id="navbarNav">
-            <form action="user" method="POST">
+            <form action=/user method="post">
                 @csrf
                 <ul class="navbar-nav">
                     <li class="nav-item" id="navitem">
-                        <input type="text" name="user" class="form-control h-75" placeholder="Enter email">
+                        <input type="text" name="email" class="form-control h-75" placeholder="Enter email" value="{{old('email')}}">
+                        <sapn class="text danger">@error('email') {{$message}} @enderror</sapn>
                     </li>
                     <li class="nav-item" id="navitem">
-                        <input type="password" class="form-control h-75" placeholder="Enter password">
+                        <input type="password" name="password" class="form-control h-75" placeholder="Enter password">
+                        <sapn class="text danger">@error ('password') {{$message}} @enderror</sapn>
                     </li>
                     <li class="nav-item" id="navitem">
-                        <button type="submit" id="login" class="btn btn-primary btn-sm">Login</button>
+                        <button type="submit" id="login" name="button" class="btn btn-primary btn-sm">Login</button>
                     </li>
                 </ul>
-                 <a href="/register" class="">i dont have a account</a>   
+                <a href="/register"> I dont have an account!</a>
             </form>
         </div>
     </nav>

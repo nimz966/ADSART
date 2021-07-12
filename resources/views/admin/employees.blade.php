@@ -20,11 +20,12 @@
 
 
                         <!-- Employee name -->
-                        <form role="form" method="" action="">
-                            <input type="hidden" name="_token" value="">
+                        <form role="form" method="post" action="addEmployee">
+                            {{csrf_field()}}
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div class="form-group">
                                 <lable>Employee Name</lable>
-                                <input type="text" class="form-control">
+                                <input type="text" name="user_name" class="form-control">
                             </div>
 
                             <!-- Employee NIC -->
@@ -34,38 +35,25 @@
                                 <input type="text" min="9" max="9" class="form-control">
                             </div>
 
-                            <!-- Employee gender -->
-                            <div>
-                                <lable>Gender</lable>
-                                <div class="custom-control custom-radio">
-                                    <input type="radio" id="customRadio1" name="customRadio"
-                                        class="custom-control-input">
-                                    <label class="custom-control-label" for="customRadio1">Male</label>
-                                </div>
-                                <div class="custom-control custom-radio pb-3">
-                                    <input type="radio" id="customRadio2" name="customRadio"
-                                        class="custom-control-input">
-                                    <label class="custom-control-label" for="customRadio2">Female</label>
-                                </div>
-                            </div>
 
                             <!-- Employee Address -->
                             <div class="form-group">
                                 <lable>Employee Address</lable>
-                                <input type="text" class="form-control">
+                                <input type="text" name="address" class="form-control">
                             </div>
 
                             <!-- Employee contact number -->
                             <div class="form-group">
                                 <lable>Employee Contact number</lable>
-                                <input type="tel" id="phone" class="form-control" pattern="[0-9]{3} [0-9]{7}">
+                                <input type="tel" id="phone" name="phone_no" class="form-control"
+                                    pattern="[0-9]{3} [0-9]{7}">
                                 <small>Format: 011 8645678</small>
                             </div>
 
                             <!-- Employee email -->
                             <div class="form-group">
                                 <lable>Email</lable>
-                                <input type="email" class="form-control">
+                                <input type="email" name="email" class="form-control">
                             </div>
 
                             <!-- Employee status -->
@@ -214,11 +202,12 @@
                 <div class="table100-body js-pscroll">
                     <table>
                         <tbody>
+                            @foreach($tasks as $task)
                             <tr class="row100 body">
-                                <td class="cell100 column1"></td>
-                                <td class="cell100 column2"></td>
+                                <td class="cell100 column1">{{$task->user_id}}</td>
+                                <td class="cell100 column2">{{$task->user_name}}</td>
                                 <td class="cell100 column3"></td>
-                                <td class="cell100 column4"></td>
+                                <td class="cell100 column4">{{$task->phone_no}}</td>
                                 <td class="cell100 column5"></td>
                                 <td class="cell100 column6">
                                     <ul class="list-inline m-0">
@@ -377,9 +366,10 @@
                                                     <div class="modal-body">
                                                         Are you sure that you want to permanently delete this record ?
                                                     </div>
+
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-primary btn-sm"
-                                                            data-dismiss="modal">Yes</button>
+                                                        <a href="/deleteUser/{{$task->user_id}}" type="button"
+                                                            class="btn btn-primary btn-sm">Yes</a>
                                                         <button type="button" class="btn btn-primary btn-sm"
                                                             data-dismiss="modal">No</button>
                                                     </div>
@@ -389,6 +379,7 @@
                                     </ul>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

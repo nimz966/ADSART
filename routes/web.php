@@ -4,11 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\userAuth;
 
+// views
 
-
-Route::get('/login', function () {
+/*Route::get('/login', function () {
     return view('login');
-});
+});*/
 
 Route::get('/register', function () {
     return view('register');
@@ -19,7 +19,8 @@ Route::get('/home', function () {
 })->name('home');
 
 Route::get('/customers', function () {
-    return view('admin/customers');
+    $data = App\Models\user_new::all();
+    return view('admin/customers')->with('tasks', $data);
 })->name('customers');
 
 Route::get('/events', function () {
@@ -31,7 +32,8 @@ Route::get('/event/{id}', function () {
 })->name('event');
 
 Route::get('/employees', function () {
-    return view('admin/employees');
+    $data = App\Models\user_new::all();
+    return view('admin/employees')->with('tasks', $data);
 })->name('employees');
 
 Route::get('/profile', function () {
@@ -72,7 +74,23 @@ Route::get('/employee-event-report', function () {
 Route::get('/login', function () {
     return view('login');
 })->name('login');
+ //.... end_of_views ...............................|
 
+//registration
 Route::post('/userDetails', [RegisterController::class, 'store']);
 
-Route::post('/user', [userAuth::class,'userLogin']);
+ //login_auth
+Route::post('/user', [userAuth::class, 'userLogin']);
+
+
+//add new customer in customer page
+Route::post('/saveTask', [RegisterController::class, 'addCustomer']);
+
+//add new customer in event page
+Route::post('/insertCustomer', [RegisterController::class, 'insertCustomer']);
+
+//add new employee
+Route::post('/addEmployee', [RegisterController::class, 'addEmployee']);
+
+//delete user(employee.costomer)
+Route::get('/deleteUser/{user_id}', [RegisterController::class, 'deleteUser']);
