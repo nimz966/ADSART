@@ -93,10 +93,11 @@
         </div>
         <!-- Login Form -->
         <div class="collapse navbar-collapse" id="navbarNav">
-            <form>
+            <form action="user" method="POST">
+                @csrf
                 <ul class="navbar-nav">
                     <li class="nav-item" id="navitem">
-                        <input type="email" class="form-control h-75" placeholder="Enter email">
+                        <input type="text" name="user" class="form-control h-75" placeholder="Enter email">
                     </li>
                     <li class="nav-item" id="navitem">
                         <input type="password" class="form-control h-75" placeholder="Enter password">
@@ -105,9 +106,7 @@
                         <button type="submit" id="login" class="btn btn-primary btn-sm">Login</button>
                     </li>
                 </ul>
-                @if(session('status'))
-                <div class="alert alert-success">{{(session('status'))}}</div>
-                @endif
+                 <a href="/register" class="">i dont have a account</a>   
             </form>
         </div>
     </nav>

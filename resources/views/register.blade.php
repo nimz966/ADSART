@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Login</title>
+    <title>register</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -91,12 +91,8 @@
                 <a class="navbar-brand" href="#"> ADS ART Event Management System</a>
             </div>
         </div>
-        <!-- Login Form -->
-       
-                @if(session('status'))
-                <div class="alert alert-success">{{(session('status'))}}</div>
-                @endif
-            </form>
+
+
         </div>
     </nav>
 
@@ -107,11 +103,25 @@
 
                 <div class="col-12 form-input">
                     <form method="post" action="{{url ('userDetails') }}">
+
+                        @if(Session::get('success'))
+                        <div class="alert alert-success">
+                            {{Session::get('success')}}
+                        </div>
+                        @endif
+
+                        @if(Session::get('fail'))
+                        <div class="alter alter-success">
+                            {{Session::get('fail')}}
+                        </div>
+                        @endif
+
                         {{csrf_field()}}
 
                         <!-- User Name -->
                         <div class="form-group">
-                            <input type="text" class="form-control" name="username" placeholder="User name">
+                            <input type="text" class="form-control" name="username" placeholder="User name" value="{{old('name')}}">
+                            <span class="text-danger">@error('username'){{($message)}} @enderror</span>
                         </div>
                         <!-- Address -->
                         <div class="form-group">
@@ -124,7 +134,8 @@
                         </div>
                         <!-- Email -->
                         <div class="form-group">
-                            <input type="email" class="form-control" name='email' placeholder="Enter email">
+                            <input type="email" class="form-control" name='email' placeholder="Enter email" value="{{old('email')}}">
+                            <span class="text-danger">@error('email'){{($message)}} @enderror</span>
                         </div>
                         <!-- User Types -->
                         <div>
@@ -146,9 +157,13 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col text-center"><span class="text-danger">
+                                @error('user_type'){{($message)}} @enderror</span>
+                        </div>
                         <!-- Password -->
                         <div class="form-group">
                             <input type="password" class="form-control" name='password' placeholder="Enter password">
+                            <span class="text-danger">@error('password'){{($message)}} @enderror</span>
                         </div>
                         <!-- registration -->
                         <div class="col text-center">
