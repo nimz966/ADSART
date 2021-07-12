@@ -45,8 +45,7 @@
                             <!-- Employee contact number -->
                             <div class="form-group">
                                 <lable>Employee Contact number</lable>
-                                <input type="tel" id="phone" name="phone_no" class="form-control"
-                                    pattern="[0-9]{3} [0-9]{7}">
+                                <input type="tel" id="phone" name="phone_no" class="form-control" pattern="[0-9]{3} [0-9]{7}">
                                 <small>Format: 011 8645678</small>
                             </div>
 
@@ -67,73 +66,14 @@
                             </div>
                             <!-- Employee positions -->
                             <div class="modal-body row">
-                                <!-- Employee position first col  -->
+                                @foreach($positions as $pos)
                                 <div class="col-md-6">
                                     <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" value="">Audio Operator
-                                    </div>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" value="">Cameraman
-                                    </div>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" value="">Camera
-                                        Assistant
-                                    </div>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" value="">Camera Operator
-                                    </div>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" value="">Customer
-                                        Officer
-                                    </div>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" value="">Driver
-                                    </div>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" value="">Editor
-                                    </div>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" value="">Engineer
-                                    </div>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" value="">Flow Manager
+                                        <input type="checkbox" name="{{$pos->position_id}}" class="form-check-input" value="">{{$pos->description}}
                                     </div>
                                 </div>
+                                @endforeach
 
-                                <!-- Employee position second col  -->
-                                <div class="col-md-6">
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" value="">Graphic
-                                        Operator
-                                    </div>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" value="">Labor
-                                    </div>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" value="">Manager
-                                    </div>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" value="">Production
-                                        Manager
-                                    </div>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" value="">Setup
-                                        Technician
-                                    </div>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" value="">Slomo Operator
-                                    </div>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" value="">Technical
-                                        Assistant
-                                    </div>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" value="">Technician
-                                    </div>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" value="">Vision Operator
-                                    </div>
-                                </div>
                             </div>
                             <!-- modal footer  -->
                             <div class="modal-footer">
@@ -202,19 +142,17 @@
                 <div class="table100-body js-pscroll">
                     <table>
                         <tbody>
-                            @foreach($tasks as $task)
+                            @foreach($employees as $emp)
                             <tr class="row100 body">
-                                <td class="cell100 column1">{{$task->user_id}}</td>
-                                <td class="cell100 column2">{{$task->user_name}}</td>
+                                <td class="cell100 column1">{{$emp->user_id}}</td>
+                                <td class="cell100 column2">{{$emp->user_name}}</td>
                                 <td class="cell100 column3"></td>
-                                <td class="cell100 column4">{{$task->phone_no}}</td>
+                                <td class="cell100 column4">{{$emp->phone_no}}</td>
                                 <td class="cell100 column5"></td>
                                 <td class="cell100 column6">
                                     <ul class="list-inline m-0">
                                         <!-- Button trigger modal for edit-->
-                                        <li class="list-inline-item" data-toggle="modal" data-placement="bottom"
-                                            title="Edit" data-target="#exampleModal"><a id="edit"><i
-                                                    class="fa fa-edit"></i></a>
+                                        <li class="list-inline-item" data-toggle="modal" data-placement="bottom" title="Edit" data-target="#exampleModal"><a id="edit"><i class="fa fa-edit"></i></a>
                                         </li>
                                         <!-- Employee edit modal -->
                                         <div class="modal" id="exampleModal">
@@ -223,8 +161,7 @@
                                                     <!-- Modal Header -->
                                                     <div class="modal-header">
                                                         <h4 class="modal-title">Employee Details</h4>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                            aria-hidden="true">×</button>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                                     </div>
                                                     <div class="container"></div>
                                                     <!-- Modal body -->
@@ -254,86 +191,68 @@
                                                             <!-- Employee position first col  -->
                                                             <div class="col-md-6">
                                                                 <div class="form-check">
-                                                                    <input type="checkbox" class="form-check-input"
-                                                                        value="">Audio Operator
+                                                                    <input type="checkbox" class="form-check-input" value="">Audio Operator
                                                                 </div>
                                                                 <div class="form-check">
-                                                                    <input type="checkbox" class="form-check-input"
-                                                                        value="">Cameraman
+                                                                    <input type="checkbox" class="form-check-input" value="">Cameraman
                                                                 </div>
                                                                 <div class="form-check">
-                                                                    <input type="checkbox" class="form-check-input"
-                                                                        value="">Camera
+                                                                    <input type="checkbox" class="form-check-input" value="">Camera
                                                                     Assistant
                                                                 </div>
                                                                 <div class="form-check">
-                                                                    <input type="checkbox" class="form-check-input"
-                                                                        value="">Camera Operator
+                                                                    <input type="checkbox" class="form-check-input" value="">Camera Operator
                                                                 </div>
                                                                 <div class="form-check">
-                                                                    <input type="checkbox" class="form-check-input"
-                                                                        value="">Customer
+                                                                    <input type="checkbox" class="form-check-input" value="">Customer
                                                                     Officer
                                                                 </div>
                                                                 <div class="form-check">
-                                                                    <input type="checkbox" class="form-check-input"
-                                                                        value="">Driver
+                                                                    <input type="checkbox" class="form-check-input" value="">Driver
                                                                 </div>
                                                                 <div class="form-check">
-                                                                    <input type="checkbox" class="form-check-input"
-                                                                        value="">Editor
+                                                                    <input type="checkbox" class="form-check-input" value="">Editor
                                                                 </div>
                                                                 <div class="form-check">
-                                                                    <input type="checkbox" class="form-check-input"
-                                                                        value="">Engineer
+                                                                    <input type="checkbox" class="form-check-input" value="">Engineer
                                                                 </div>
                                                                 <div class="form-check">
-                                                                    <input type="checkbox" class="form-check-input"
-                                                                        value="">Flow Manager
+                                                                    <input type="checkbox" class="form-check-input" value="">Flow Manager
                                                                 </div>
                                                             </div>
 
                                                             <!-- Employee position second col  -->
                                                             <div class="col-md-6">
                                                                 <div class="form-check">
-                                                                    <input type="checkbox" class="form-check-input"
-                                                                        value="">Graphic
+                                                                    <input type="checkbox" class="form-check-input" value="">Graphic
                                                                     Operator
                                                                 </div>
                                                                 <div class="form-check">
-                                                                    <input type="checkbox" class="form-check-input"
-                                                                        value="">Labor
+                                                                    <input type="checkbox" class="form-check-input" value="">Labor
                                                                 </div>
                                                                 <div class="form-check">
-                                                                    <input type="checkbox" class="form-check-input"
-                                                                        value="">Manager
+                                                                    <input type="checkbox" class="form-check-input" value="">Manager
                                                                 </div>
                                                                 <div class="form-check">
-                                                                    <input type="checkbox" class="form-check-input"
-                                                                        value="">Production
+                                                                    <input type="checkbox" class="form-check-input" value="">Production
                                                                     Manager
                                                                 </div>
                                                                 <div class="form-check">
-                                                                    <input type="checkbox" class="form-check-input"
-                                                                        value="">Setup
+                                                                    <input type="checkbox" class="form-check-input" value="">Setup
                                                                     Technician
                                                                 </div>
                                                                 <div class="form-check">
-                                                                    <input type="checkbox" class="form-check-input"
-                                                                        value="">Slomo Operator
+                                                                    <input type="checkbox" class="form-check-input" value="">Slomo Operator
                                                                 </div>
                                                                 <div class="form-check">
-                                                                    <input type="checkbox" class="form-check-input"
-                                                                        value="">Technical
+                                                                    <input type="checkbox" class="form-check-input" value="">Technical
                                                                     Assistant
                                                                 </div>
                                                                 <div class="form-check">
-                                                                    <input type="checkbox" class="form-check-input"
-                                                                        value="">Technician
+                                                                    <input type="checkbox" class="form-check-input" value="">Technician
                                                                 </div>
                                                                 <div class="form-check">
-                                                                    <input type="checkbox" class="form-check-input"
-                                                                        value="">Vision Operator
+                                                                    <input type="checkbox" class="form-check-input" value="">Vision Operator
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -341,8 +260,7 @@
                                                         <div class="modal-footer">
                                                             <div class="form-group">
                                                                 <div>
-                                                                    <button type="submit" class="btn btn-primary"
-                                                                        data-dismiss="modal">Save
+                                                                    <button type="submit" class="btn btn-primary" data-dismiss="modal">Save
                                                                         Changes</button>
                                                                 </div>
                                                             </div>
@@ -353,14 +271,11 @@
                                             </div>
                                         </div>
                                         <!-- Button trigger modal for delete-->
-                                        <li class="list-inline-item" data-toggle="modal" data-placement="bottom"
-                                            title="Delete" data-target="#exampleModal1"><a id="delete"><i
-                                                    class="fa fa-trash"></i></a>
+                                        <li class="list-inline-item" data-toggle="modal" data-placement="bottom" title="Delete" data-target="#exampleModal1"><a id="delete"><i class="fa fa-trash"></i></a>
                                         </li>
 
                                         <!-- Modal for delete-->
-                                        <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog"
-                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-body">
@@ -368,10 +283,8 @@
                                                     </div>
 
                                                     <div class="modal-footer">
-                                                        <a href="/deleteUser/{{$task->user_id}}" type="button"
-                                                            class="btn btn-primary btn-sm">Yes</a>
-                                                        <button type="button" class="btn btn-primary btn-sm"
-                                                            data-dismiss="modal">No</button>
+                                                        <a href="/deleteUser/{{$emp->user_id}}" type="button" class="btn btn-primary btn-sm">Yes</a>
+                                                        <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">No</button>
                                                     </div>
                                                 </div>
                                             </div>

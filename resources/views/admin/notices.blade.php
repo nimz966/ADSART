@@ -17,19 +17,31 @@
                     <div class="container"></div>
 
                     <!-- Modal body -->
-                    <div class="modal-body">
-                        <div class="form-floating">
+                    <form action="/addNotice" method="post">
+                        {{csrf_field()}}
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <div class="modal-body">
                             <div class="form-floating">
-                                <textarea class="form-control" placeholder="Enter your message here... " rows="10"
-                                    cols="5"></textarea>
+                                <div class="form-floating">
+                                    <textarea class="form-control" name="description"
+                                        placeholder="Enter your message here... " rows="10" cols="5"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <lable>user id</lable>
+                                    <input type="text" name="user_id" class="form-control">
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <a href="" class="btn btn-primary">Publish</a>
-                    </div>
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <div class="form-group">
+                                <div>
+                                    <button type="submit" class="btn btn-primary">Publish</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -77,9 +89,10 @@
                 <div class="table100-body js-pscroll">
                     <table>
                         <tbody>
+                            @foreach($tasks as $task)
                             <tr class="row100 body">
-                                <td class="cell100 column1"></td>
-                                <td class="cell100 column2"></td>
+                                <td class="cell100 column1">{{$task->description}}</td>
+                                <td class="cell100 column2">{{$task->created_at	}}</td>
                                 <td class="cell100 column3">
                                     <ul class="list-inline m-0">
                                         <!-- Button trigger modal for delete-->
@@ -97,8 +110,8 @@
                                                         Are you sure that you want to permanently delete this record ?
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-primary btn-sm"
-                                                            data-dismiss="modal">Yes</button>
+                                                        <a href="/deleteNotice/{{$task->notice_id}}" type="button"
+                                                            class="btn btn-primary btn-sm">Yes</a>
                                                         <button type="button" class="btn btn-primary btn-sm"
                                                             data-dismiss="modal">No</button>
                                                     </div>
@@ -108,6 +121,7 @@
                                     </ul>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

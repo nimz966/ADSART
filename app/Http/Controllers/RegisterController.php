@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Event;
+
+
+use App\Models\Notice;
+
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Hash;
@@ -47,15 +52,27 @@ class RegisterController extends Controller
     //show customer details in the table
     public function addCustomer(Request $request)
     {
+        $rules = [
+            "user_name" => "required",
+            'address' => "required",
+            "phone_no" => "required",
+            "email" => "required|email"
+        ];
+
+        $request->validate($rules);
+
         $user = new user_new;
         $user->user_name = $request->input('user_name');
         $user->address = $request->input('address');
         $user->phone_no = $request->input('phone_no');
-        $user->user_type = ("customer");
+        $user->user_type = "customer";
         $user->email = $request->input('email');
-        $user->save();
-        $data = user_new::all();
-        return view('admin\customers')->with('tasks', $data);
+        $save = $user->save();
+        if ($save) {
+            return back()->with('success', 'New user has been succsessfuly added');
+        } else {
+            return back()->with('fail', 'Something went wrong, try agin later');
+        }
     }
 
     //addd new customer in event page
@@ -96,9 +113,21 @@ class RegisterController extends Controller
     // create event
     public function createEvent(Request $request)
     {
+        $rules = [
+            "event_date" => "required",
+            "standby_Date" => "required",
+            "event_name" => "required|max:200",
+            "location" => "required",
+            "starting_time" => "required",
+            "standby_time" => "required",
+            "no_of_cams" => "required"
+        ];
+
+        $request->validate($rules);
+
         $event = new Event;
         $event->event_date = $request->input('event_date');
-        $event->standby_date = $request->input('Standby_Date');
+        $event->standby_date = $request->input('standby_Date');
         $event->event_name = $request->input('event_name');
         $event->location = $request->input('location');
         $event->starting_time = $request->input('starting_time');
@@ -106,5 +135,28 @@ class RegisterController extends Controller
         $event->no_of_cams = $request->input('no_of_cams');
         $event->special_requirements = $request->input('special_requirements');
         $event->save();
+        return redirect()->back();
+    }
+
+
+
+
+    //Publish Notice
+    public function addNotice(Request $request)
+    {
+        $notice = new Notice;
+        $notice->description = $request->input('description');
+        $notice->user_id = $request->input('user_id');
+        $notice->save();
+        $data = Notice::all();
+        return view('admin\notices')->with('tasks', $data);
+    }
+
+    //delete Notice
+    public function deleteNotice($notice_id)
+    {
+        $data = Notice::find($notice_id);
+        $data->delete();
+        return redirect()->back();
     }
 }

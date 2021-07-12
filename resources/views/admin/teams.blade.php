@@ -52,16 +52,18 @@
             <div class="table100-body js-pscroll">
                 <table>
                     <tbody>
+                        @foreach($events as $event)
                         <tr class="row100 body">
-                            <td class="cell100 column1"></td>
-                            <td class="cell100 column2"></td>
-                            <td class="cell100 column3"></td>
-                            <td class="cell100 column4"></td>
-                            <td class="cell100 column5"></td>
+                            <td class="cell100 column1">{{ str_pad($event->event_id, 4, 0, false) }}</td>
+                            <td class="cell100 column2">{{ $event->event_name }}</td>
+                            <td class="cell100 column3">{{ $event->event_date }}</td>
+                            <td class="cell100 column4">{{ $event->location }}</td>
+                            <td class="cell100 column5">{{ $event->no_of_cams }}</td>
                             <td class="cell100 column6">
-                                <a href="{{ route('team-details', 12) }}">status</a>
+                                <a href="{{ route('team-details', $event->event_id) }}">status</a>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

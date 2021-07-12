@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\userAuth;
+use Illuminate\Http\Request;
 
 // views
 
@@ -24,16 +25,24 @@ Route::get('/customers', function () {
 })->name('customers');
 
 Route::get('/events', function () {
-    return view('admin/events');
+    $events = App\Models\Event::all();
+    $customers = App\Models\User::where('user_type', 'customer')->get()->toArray();
+    return view('admin/events', compact('events', 'customers'));
 })->name('events');
 
 Route::get('/event/{id}', function () {
     return view('admin/event-details');
 })->name('event');
 
+Route::post('/event/{id}/assignment', function () {
+    $employees = App\Models\User::where('user_type', 'customer')->get()->toArray();
+    return view('admin/employee-assignment');
+})->name('employee-assignment');
+
 Route::get('/employees', function () {
-    $data = App\Models\user_new::all();
-    return view('admin/employees')->with('tasks', $data);
+    $employees = App\Models\User::where('user_type', 'employee')->get();
+    $positions = App\Models\Positions::All();
+    return view('admin/employees', compact('employees', 'positions'));
 })->name('employees');
 
 Route::get('/profile', function () {
@@ -41,22 +50,22 @@ Route::get('/profile', function () {
 })->name('profile');
 
 Route::get('/teams', function () {
-    return view('admin/teams');
+    $events = App\Models\Event::all();
+    return view('admin/teams', compact('events'));
 })->name('teams');
 
-Route::get('/team/{id}', function () {
-    return view('admin/team-details');
+Route::get('/team/{id}', function (Request $request) {
+    $event_id = $request->id;
+    $positions = App\Models\Positions::All();
+    return view('admin/team-details', compact('positions', 'event_id'));
 })->name('team-details');
-
-Route::get('/event/{id}/assignment', function () {
-    return view('admin/employee-assignment');
-})->name('employee-assignment');
 
 Route::get('/newnotice', function () {
     return view('admin/newnotice');
 });
 Route::get('/notices', function () {
-    return view('admin/notices');
+    $data = App\Models\Notice::all();
+    return view('admin/notices')->with('tasks', $data);
 })->name('notices');
 
 Route::get('/changeuserlevel', function () {
@@ -74,12 +83,12 @@ Route::get('/employee-event-report', function () {
 Route::get('/login', function () {
     return view('login');
 })->name('login');
- //.... end_of_views ...............................|
+//.... end_of_views ...............................|
 
 //registration
 Route::post('/userDetails', [RegisterController::class, 'store']);
 
- //login_auth
+//login_auth
 Route::post('/user', [userAuth::class, 'userLogin']);
 
 
@@ -96,5 +105,12 @@ Route::post('/addEmployee', [RegisterController::class, 'addEmployee']);
 Route::get('/deleteUser/{user_id}', [RegisterController::class, 'deleteUser']);
 
 
+
 // create event
-Route::get('/createEvent',[RegisterController::class,'createEvent']);
+Route::post('/createEvent', [RegisterController::class, 'createEvent']);
+
+//Publish notice
+Route::post('/addNotice', [RegisterController::class, 'addNotice']);
+
+//delete Notice
+Route::get('/deleteNotice/{notice_id}', [RegisterController::class, 'deleteNotice']);

@@ -19,9 +19,10 @@
                 <div class="container"></div>
 
                 <!-- modal body-->
-                <div class="modal-body">
-                    <form method="post" action="/createEvent">
-                    {{csrf_field()}}
+                <form method="post" action="/createEvent">
+                    <div class="modal-body">
+                        {{csrf_field()}}
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                         <!-- Enter event date -->
                         <div class="form-group">
@@ -32,7 +33,7 @@
                         <!-- Enter standby date -->
                         <div class="form-group">
                             <lable>Standby Date</lable>
-                            <input type="date" class="form-control" name='Standby_Date'>
+                            <input type="date" class="form-control" name='standby_Date'>
                         </div>
 
                         <!-- enter event name -->
@@ -51,7 +52,10 @@
                         <div class="form-group">
                             <lable>Customer Name</lable>
                             <select type="text" class="form-control" name=''>
-                                <option></option>
+                                <option>Select a customer</option>
+                                @foreach($customers as $cus)
+                                <option value="{{$cus['user_id']}}">{{$cus['user_name']}}</option>
+                                @endforeach
                             </select>
                         </div>
 
@@ -69,7 +73,7 @@
                         <!-- Enter standby time -->
                         <div>
                             <lable>Standby Time</lable>
-                            <input type="time" class="form-control" name="standby_time"> 
+                            <input type="time" class="form-control" name="standby_time">
                         </div>
 
                         <!-- Select number of cameras -->
@@ -81,17 +85,17 @@
                         <!-- Enter special requirements -->
                         <div>
                             <lable>Special Requirements</lable>
-                            <textarea class="form-control" name='special requirements'></textarea>
+                            <textarea class="form-control" name='special_requirements'></textarea>
                         </div>
                     </div>
-                    
+
                     <!-- modal footer -->
                     <div class="modal-footer">
-                        <a href="#" data-dismiss="modal" class="btn btn-primary">Close</a>
-                        <a href="{{ route('event', 21) }}" class="btn btn-primary" type="submit">Create
-                            Event</a>
-                        </div>
-                    </form>
+                        <button class="btn btn-primary">Close</button>
+                        <button href="{{ route('event', 21) }}" class="btn btn-primary" type="submit">Create
+                            Event</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -128,8 +132,7 @@
                         <!-- Enter contact number -->
                         <div class="form-group">
                             <lable>Contact number</lable>
-                            <input type="tel" name="phone_no" id="phone" class="form-control"
-                                pattern="[0-9]{3} [0-9]{7}">
+                            <input type="tel" name="phone_no" id="phone" class="form-control" pattern="[0-9]{3} [0-9]{7}">
                             <small>Format: 011 8645678</small>
                         </div>
 
@@ -205,17 +208,17 @@
             <div class="table100-body js-pscroll">
                 <table>
                     <tbody>
+                        @foreach($events as $event)
                         <tr class="row100 body">
-                            <td class="cell100 column1"></td>
-                            <td class="cell100 column2"></td>
-                            <td class="cell100 column3"></td>
-                            <td class="cell100 column4"></td>
-                            <td class="cell100 column5"></td>
+                            <td class="cell100 column1">{{$event->event_date}}</td>
+                            <td class="cell100 column2">{{$event->event_name}}</td>
+                            <td class="cell100 column3">{{$event->Location}}</td>
+                            <td class="cell100 column4">{{$event->no_of_cams}}</td>
+                            <td class="cell100 column5">{{$event->status}}</td>
                             <td class="cell100 column6">
                                 <ul class="list-inline m-0">
                                     <!-- Edit option-->
-                                    <li class="list-inline-item" data-toggle="modal" data-placement="bottom"
-                                        title="Edit" data-target="#mymodal"><a id="edit"><i class="fa fa-edit"></i></a>
+                                    <li class="list-inline-item" data-toggle="modal" data-placement="bottom" title="Edit" data-target="#mymodal"><a id="edit"><i class="fa fa-edit"></i></a>
                                     </li>
                                     <!-- Edit event modal -->
                                     <div class="modal fade bd-example-modal-lg" id="mymodal">
@@ -225,8 +228,7 @@
                                                 <!-- modal header -->
                                                 <div class="modal-header">
                                                     <h4 class="modal-title">Change Event Details</h4>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                        aria-hidden="true">×</button>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                                 </div>
                                                 <div class="container"></div>
 
@@ -302,24 +304,19 @@
                                     </div>
 
                                     <!-- Button trigger modal for delete-->
-                                    <li class="list-inline-item" data-toggle="modal" data-placement="bottom"
-                                        title="Delete" data-target="#exampleModal"><a id="delete"><i
-                                                class="fa fa-trash"></i></a>
+                                    <li class="list-inline-item" data-toggle="modal" data-placement="bottom" title="Delete" data-target="#exampleModal"><a id="delete"><i class="fa fa-trash"></i></a>
                                     </li>
 
                                     <!-- Modal for delete-->
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-body">
                                                     Are you sure that you want to permanently delete this record ?
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-primary btn-sm"
-                                                        data-dismiss="modal">Yes</button>
-                                                    <button type="button" class="btn btn-primary btn-sm"
-                                                        data-dismiss="modal">No</button>
+                                                    <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Yes</button>
+                                                    <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">No</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -327,6 +324,7 @@
                                 </ul>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

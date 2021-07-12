@@ -10,7 +10,7 @@
             <!-- Select employees name for positions  -->
             <div class="col-6">
                 <div class="form-group">
-                    <lable>position</lable>
+                    <lable>this lable shows position table</lable>
                     <select name="Select Status" class="form-control">
                         <option></option>
                         <option></option>
@@ -26,7 +26,7 @@
                         <!-- Table head  -->
                         <thead>
                             <tr>
-                                <th>Position</th>
+                                <th>position</th>
                                 <th>Employee Name</th>
                             </tr>
                         </thead>
