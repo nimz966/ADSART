@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\user_new;
+use App\Models\Notice;
 use Illuminate\Http\Request;
 //use App\models\user;
 
@@ -66,6 +67,24 @@ public function addEmployee(Request $request)
 public function deleteUser($user_id)
 {
   $data=user_new::find($user_id); 
+  $data->delete();
+  return redirect()->back();
+}
+
+//Publish Notice
+public function addNotice(Request $request){
+    $notice = new Notice;
+    $notice->description = $request->input('description');
+    $notice->user_id = $request->input('user_id');
+    $notice->save();
+    $data=Notice::all();
+    return view('admin\notices')->with('tasks',$data);
+}
+
+//delete Notice
+public function deleteNotice($notice_id)
+{
+  $data=Notice::find($notice_id); 
   $data->delete();
   return redirect()->back();
 }

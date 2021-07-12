@@ -63,7 +63,8 @@ Route::get('/newnotice', function () {
     return view('admin/newnotice');
 });
 Route::get('/notices', function () {
-    return view('admin/notices');
+    $data=App\Models\Notice::all();
+    return view('admin/notices')->with('tasks',$data);
 })->name('notices');
 
 Route::get('/changeuserlevel', function () {
@@ -96,3 +97,9 @@ Route::post('/addEmployee', [RegisterController::class, 'addEmployee']);
 
 //delete user(employee.costomer)
 Route::get('/deleteUser/{user_id}', [RegisterController::class, 'deleteUser']);
+
+//Publish notice
+Route::post('/addNotice', [RegisterController::class, 'addNotice']);
+
+//delete Notice
+Route::get('/deleteNotice/{notice_id}', [RegisterController::class, 'deleteNotice']);
