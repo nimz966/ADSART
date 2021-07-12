@@ -114,7 +114,7 @@
                         <button type="submit" id="login" name="button" class="btn btn-primary btn-sm">Login</button>
                     </li>
                 </ul>
-                <a href="/register"> I dont have an account!</a>
+                <a href="/register"></a>
             </form>
         </div>
     </nav>
