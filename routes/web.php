@@ -94,3 +94,7 @@ Route::post('/addEmployee', [RegisterController::class, 'addEmployee']);
 
 //delete user(employee.costomer)
 Route::get('/deleteUser/{user_id}', [RegisterController::class, 'deleteUser']);
+
+
+// create event
+Route::get('/createEvent',[RegisterController::class,'createEvent']);

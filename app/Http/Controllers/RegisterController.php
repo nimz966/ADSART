@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Hash;
@@ -26,7 +27,7 @@ class RegisterController extends Controller
         //$user->password = Hash::make($request->password);
 
         //validating requests
-        
+
         $request->validate([
             'username' => 'required',
             'email' => 'required|email|unique:users',
@@ -41,7 +42,7 @@ class RegisterController extends Controller
             return back()->with('fail', 'Something went wrong, try agin later');
         }
     }
-    
+
     //add new customer in customer page
     //show customer details in the table
     public function addCustomer(Request $request)
@@ -92,29 +93,18 @@ class RegisterController extends Controller
         $data->delete();
         return redirect()->back();
     }
-    // login login copytest
-    function userLogin(Request $request)
+    // create event
+    public function createEvent(Request $request)
     {
-        return $request->input('username');
-        return $request->input('password');
-
-        // validate requests
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required|min:5|max 10'
-        ]);
-
-        $userInfo = user_new::where('email', '', $request->email)->first();
-        if($userInfo){
-            return back()->with('Wrong email address!');
-        }else {
-            //check password
-            if(Hash::check($request-> password,$userInfo-> password)){
-
-            }else{
-                return back()-> with('Incorrect password!');
-            }
-        }
-        
+        $event = new Event;
+        $event->event_date = $request->input('event_date');
+        $event->standby_date = $request->input('Standby_Date');
+        $event->event_name = $request->input('event_name');
+        $event->location = $request->input('location');
+        $event->starting_time = $request->input('starting_time');
+        $event->standby_time = $request->input('standby_time');
+        $event->no_of_cams = $request->input('no_of_cams');
+        $event->special_requirements = $request->input('special_requirements');
+        $event->save();
     }
 }

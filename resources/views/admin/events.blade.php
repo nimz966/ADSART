@@ -20,36 +20,37 @@
 
                 <!-- modal body-->
                 <div class="modal-body">
-                    <form>
+                    <form method="post" action="/createEvent">
+                    {{csrf_field()}}
 
                         <!-- Enter event date -->
                         <div class="form-group">
                             <lable>Event Date</lable>
-                            <input type="date" class="form-control">
+                            <input type="date" class="form-control" name="event_date">
                         </div>
 
                         <!-- Enter standby date -->
                         <div class="form-group">
                             <lable>Standby Date</lable>
-                            <input type="date" class="form-control">
+                            <input type="date" class="form-control" name='Standby_Date'>
                         </div>
 
                         <!-- enter event name -->
                         <div class="form-group">
                             <lable>Event Name</lable>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name='event_name'>
                         </div>
 
                         <!-- Enter Location -->
                         <div class="form-group">
                             <lable>Location</lable>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name='location'>
                         </div>
 
                         <!-- Enter customer name -->
                         <div class="form-group">
                             <lable>Customer Name</lable>
-                            <select type="text" class="form-control">
+                            <select type="text" class="form-control" name=''>
                                 <option></option>
                             </select>
                         </div>
@@ -62,35 +63,35 @@
                         <!-- Enter starting time -->
                         <div>
                             <lable>Starting Time</lable>
-                            <input type="time" class="form-control">
+                            <input type="time" class="form-control" name='starting_time'>
                         </div>
 
                         <!-- Enter standby time -->
                         <div>
                             <lable>Standby Time</lable>
-                            <input type="time" class="form-control">
+                            <input type="time" class="form-control" name="standby_time"> 
                         </div>
 
                         <!-- Select number of cameras -->
                         <div>
                             <lable>Number of Cameras</lable>
-                            <input type="number" min="0" class="form-control">
+                            <input type="number" min="0" class="form-control" name='no_of_cams'>
                         </div>
 
                         <!-- Enter special requirements -->
                         <div>
                             <lable>Special Requirements</lable>
-                            <textarea class="form-control"></textarea>
+                            <textarea class="form-control" name='special requirements'></textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- modal footer -->
+                    <div class="modal-footer">
+                        <a href="#" data-dismiss="modal" class="btn btn-primary">Close</a>
+                        <a href="{{ route('event', 21) }}" class="btn btn-primary" type="submit">Create
+                            Event</a>
                         </div>
                     </form>
-                </div>
-
-                <!-- modal footer -->
-                <div class="modal-footer">
-                    <a href="#" data-dismiss="modal" class="btn btn-primary">Close</a>
-                    <a href="{{ route('event', 21) }}" class="btn btn-primary">Create
-                        Event</a>
-                </div>
             </div>
         </div>
     </div>

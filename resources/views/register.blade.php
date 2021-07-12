@@ -17,7 +17,7 @@
     <style>
     /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
     body {
-        background: url('img/bc.png') no-repeat center center fixed;
+        background: url('img/nn.jpg') no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         background-size: cover;
@@ -28,13 +28,16 @@
         margin: 0 auto;
         margin-top: 40px;
         padding: 20px;
-        font-size: 13px;
-        color: darkgray;
+        font-size: 15px;
+        opacity: 0.7;
+        color: white;
+        font-weight: bold;
     }
 
     .modal-dialog {
         float: center;
         width: 1000px;
+
 
     }
 
@@ -46,6 +49,8 @@
 
     .form-group {
         padding: 10px;
+        color: white;
+        font-weight: bold;
     }
 
     #phone {
@@ -59,8 +64,10 @@
     }
 
     .form-control {
-        height: 25px;
-        font-size: 13px;
+        height: 30px;
+        font-size: 15px;
+        color: white;
+        font-weight: bold;
     }
 
     #login {
@@ -76,6 +83,9 @@
 
     .navbar-brand {
         font-family: sans-serif;
+        font-size: 24px;
+        color: #ffffcc;
+        font-weight: bold;
     }
     </style>
 </head>
@@ -83,11 +93,11 @@
 <!-- Navbar -->
 
 <body class="antialiased">
-    <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
         <!-- Nav Brand -->
         <div class="container-fluid">
             <div class="col">
-                <a class="navbar-brand" href="#"><img src="img/logo.png" height="40"> </a>
+                <a class="navbar-brand" href="#"><img src="img/logo.png" height="50"> </a>
                 <a class="navbar-brand" href="#"> ADS ART Event Management System</a>
             </div>
         </div>
@@ -101,7 +111,7 @@
     </nav>
 
     <!-- registration Form -->
-    <div class="modal-dialog col-6">
+    <div class="modal-dialog col-9">
         <div class="col main-section">
             <div class="modal-content">
 
