@@ -17,7 +17,7 @@
     <style>
     /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
     body {
-        background: url('img/bc.png') no-repeat center center fixed;
+        background: url('img/nn.jpg') no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         background-size: cover;
@@ -60,13 +60,19 @@
 
     .form-control {
         height: 25px;
-        font-size: 13px;
+        font-size: 14px;
+    }
+
+    #title {
+        font-size: 24px;
+        color: #ffffcc;
+        font-weight: bold;
     }
 
     #login {
         width: 60px;
-        height: 26px;
-        font-size: 13px;
+        height: 35px;
+        font-size: 14px;
         display: grid;
     }
 
@@ -83,12 +89,12 @@
 <!-- Navbar -->
 
 <body class="antialiased">
-    <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-muted">
         <!-- Nav Brand -->
-        <div class="container-fluid">
+        <div class="container-fluid" id="nav">
             <div class="col">
-                <a class="navbar-brand" href="#"><img src="img/logo.png" height="40"> </a>
-                <a class="navbar-brand" href="#"> ADS ART Event Management System</a>
+                <a class="navbar-brand" href="#"><img src="img/logo.png" height="50"> </a>
+                <a class="navbar-brand" href="#" id="title"> ADS ART Events Management System</a>
             </div>
         </div>
         <!-- Login Form -->
@@ -96,10 +102,10 @@
             <form>
                 <ul class="navbar-nav">
                     <li class="nav-item" id="navitem">
-                        <input type="email" class="form-control h-75" placeholder="Enter email">
+                        <input type="email" class="form-control h-100" placeholder="Enter email">
                     </li>
                     <li class="nav-item" id="navitem">
-                        <input type="password" class="form-control h-75" placeholder="Enter password">
+                        <input type="password" class="form-control h-100" placeholder="Enter password">
                     </li>
                     <li class="nav-item" id="navitem">
                         <button type="submit" id="login" class="btn btn-primary btn-sm">Login</button>
