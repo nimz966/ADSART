@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\userAuth;
 use Illuminate\Http\Request;
 
@@ -107,10 +109,10 @@ Route::get('/deleteUser/{user_id}', [RegisterController::class, 'deleteUser']);
 
 
 // create event
-Route::post('/createEvent', [RegisterController::class, 'createEvent']);
+Route::post('/createEvent', [EventController::class, 'createEvent']);
 
 //Publish notice
-Route::post('/addNotice', [RegisterController::class, 'addNotice']);
+Route::post('/addNotice', [NoticeController::class, 'addNotice']);
 
 //delete Notice
-Route::get('/deleteNotice/{notice_id}', [RegisterController::class, 'deleteNotice']);
+Route::get('/deleteNotice/{notice_id}', [NoticeController::class, 'deleteNotice']);

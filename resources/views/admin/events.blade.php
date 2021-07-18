@@ -132,7 +132,8 @@
                         <!-- Enter contact number -->
                         <div class="form-group">
                             <lable>Contact number</lable>
-                            <input type="tel" name="phone_no" id="phone" class="form-control" pattern="[0-9]{3} [0-9]{7}">
+                            <input type="tel" name="phone_no" id="phone" class="form-control"
+                                pattern="[0-9]{3} [0-9]{7}">
                             <small>Format: 011 8645678</small>
                         </div>
 
@@ -212,13 +213,14 @@
                         <tr class="row100 body">
                             <td class="cell100 column1">{{$event->event_date}}</td>
                             <td class="cell100 column2">{{$event->event_name}}</td>
-                            <td class="cell100 column3">{{$event->Location}}</td>
+                            <td class="cell100 column3">{{$event->location}}</td>
                             <td class="cell100 column4">{{$event->no_of_cams}}</td>
                             <td class="cell100 column5">{{$event->status}}</td>
                             <td class="cell100 column6">
                                 <ul class="list-inline m-0">
                                     <!-- Edit option-->
-                                    <li class="list-inline-item" data-toggle="modal" data-placement="bottom" title="Edit" data-target="#mymodal"><a id="edit"><i class="fa fa-edit"></i></a>
+                                    <li class="list-inline-item" data-toggle="modal" data-placement="bottom"
+                                        title="Edit" data-target="#mymodal"><a id="edit"><i class="fa fa-edit"></i></a>
                                     </li>
                                     <!-- Edit event modal -->
                                     <div class="modal fade bd-example-modal-lg" id="mymodal">
@@ -228,7 +230,8 @@
                                                 <!-- modal header -->
                                                 <div class="modal-header">
                                                     <h4 class="modal-title">Change Event Details</h4>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-hidden="true">×</button>
                                                 </div>
                                                 <div class="container"></div>
 
@@ -304,19 +307,24 @@
                                     </div>
 
                                     <!-- Button trigger modal for delete-->
-                                    <li class="list-inline-item" data-toggle="modal" data-placement="bottom" title="Delete" data-target="#exampleModal"><a id="delete"><i class="fa fa-trash"></i></a>
+                                    <li class="list-inline-item" data-toggle="modal" data-placement="bottom"
+                                        title="Delete" data-target="#exampleModal"><a id="delete"><i
+                                                class="fa fa-trash"></i></a>
                                     </li>
 
                                     <!-- Modal for delete-->
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-body">
                                                     Are you sure that you want to permanently delete this record ?
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Yes</button>
-                                                    <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">No</button>
+                                                    <button type="button" class="btn btn-primary btn-sm"
+                                                        data-dismiss="modal">Yes</button>
+                                                    <button type="button" class="btn btn-primary btn-sm"
+                                                        data-dismiss="modal">No</button>
                                                 </div>
                                             </div>
                                         </div>

@@ -3,11 +3,6 @@
 namespace App\Http\Controllers;
 
 
-use App\Models\Event;
-
-
-use App\Models\Notice;
-
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Hash;
@@ -110,53 +105,5 @@ class RegisterController extends Controller
         $data->delete();
         return redirect()->back();
     }
-    // create event
-    public function createEvent(Request $request)
-    {
-        $rules = [
-            "event_date" => "required",
-            "standby_Date" => "required",
-            "event_name" => "required|max:200",
-            "location" => "required",
-            "starting_time" => "required",
-            "standby_time" => "required",
-            "no_of_cams" => "required"
-        ];
-
-        $request->validate($rules);
-
-        $event = new Event;
-        $event->event_date = $request->input('event_date');
-        $event->standby_date = $request->input('standby_Date');
-        $event->event_name = $request->input('event_name');
-        $event->location = $request->input('location');
-        $event->starting_time = $request->input('starting_time');
-        $event->standby_time = $request->input('standby_time');
-        $event->no_of_cams = $request->input('no_of_cams');
-        $event->special_requirements = $request->input('special_requirements');
-        $event->save();
-        return redirect()->back();
-    }
-
-
-
-
-    //Publish Notice
-    public function addNotice(Request $request)
-    {
-        $notice = new Notice;
-        $notice->description = $request->input('description');
-        $notice->user_id = $request->input('user_id');
-        $notice->save();
-        $data = Notice::all();
-        return view('admin\notices')->with('tasks', $data);
-    }
-
-    //delete Notice
-    public function deleteNotice($notice_id)
-    {
-        $data = Notice::find($notice_id);
-        $data->delete();
-        return redirect()->back();
-    }
+    
 }

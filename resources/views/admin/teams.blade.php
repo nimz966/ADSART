@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container mt-3">
+<div class="container-fluid">
     <!-- Heading Event Details -->
     <div class="row justify-content-center m-3">
         <div>
