@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\NoticeController;
+use App\Http\Controllers\UserEditController;
 use App\Http\Controllers\userAuth;
 use Illuminate\Http\Request;
 

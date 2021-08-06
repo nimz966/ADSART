@@ -105,5 +105,7 @@ class RegisterController extends Controller
         $data->delete();
         return redirect()->back();
     }
+
+    
     
 }

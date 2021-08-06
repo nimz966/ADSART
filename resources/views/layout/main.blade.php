@@ -19,7 +19,8 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('theme/css/sb-admin-2.min.css') }}" rel="stylesheet">
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -244,6 +245,26 @@
     <script src="{{ asset('theme/js/demo/chart-area-demo.js') }}" defer></script>
     <script src="{{ asset('theme/js/demo/chart-pie-demo.js') }}" defer></script>
 
+    <script src="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.js"></script>
+    <!-- Latest compiled and minified Locales -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+    <script>
+    jQuery(document).ready(function($) {
+        //jQuery Functionality
+        $('#example').DataTable();
+        $(document).on('click', '#example tbody tr button', function() {
+            // $("#modaldata tbody tr").html("");
+            //$("#modaldata tbody tr").html($(this).closest("tr").html());
+            //$("#exampleModal").modal("show");
+        });
+    });
+    </script>
 </body>
 
 </html>
