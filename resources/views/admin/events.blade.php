@@ -166,7 +166,7 @@
 
     <!-- Event details table -->
     <div class="wrapper-table100">
-        <table class="table100 ver1 m-b-110" id="example">
+        <table class="table100 ver1 m-b-110 table-striped" id="example">
             <!-- Table head -->
             <div class="table100-head">
 
@@ -177,7 +177,6 @@
                         <th class="cell100 column3">Location</th>
                         <th class="cell100 column4">No of Cameras</th>
                         <th class="cell100 column5">Status</th>
-                        <th class="cell100 column5"></th>
                     </tr>
                 </thead>
 
@@ -193,12 +192,12 @@
                         <td class="cell100 column2">{{$event->event_name}}</td>
                         <td class="cell100 column3">{{$event->location}}</td>
                         <td class="cell100 column4">{{$event->no_of_cams}}</td>
-                        <td class="cell100 column5">{{$event->status}}</td>
-                        <td class="cell100 column6">
+                        <td class="cell100 column5">{{$event->status}}
+
                             <ul class="list-inline m-0">
                                 <!-- Edit option-->
-                                <li class="list-inline-item" data-toggle="modal" data-placement="bottom" title="Edit"
-                                    data-target="#mymodal"><a id="edit"><i class="fa fa-edit"></i></a>
+                                <li class="list-inline-item float-right" data-toggle="modal" data-placement="bottom"
+                                    title="Edit" data-target="#mymodal"><a id="edit"><i class="fa fa-edit"></i></a>
                                 </li>
                                 <!-- Edit event modal -->
                                 <div class="modal fade bd-example-modal-lg" id="mymodal">
@@ -285,8 +284,9 @@
                                 </div>
 
                                 <!-- Button trigger modal for delete-->
-                                <li class="list-inline-item" data-toggle="modal" data-placement="bottom" title="Delete"
-                                    data-target="#exampleModal"><a id="delete"><i class="fa fa-trash"></i></a>
+                                <li class="list-inline-item float-right" data-toggle="modal" data-placement="bottom"
+                                    title="Delete" data-target="#exampleModal"><a id="delete"><i
+                                            class="fa fa-trash"></i></a>
                                 </li>
 
                                 <!-- Modal for delete-->

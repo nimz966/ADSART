@@ -19,6 +19,8 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('theme/css/sb-admin-2.min.css') }}" rel="stylesheet">
+
+    <!-- Custom styles for tables-->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -258,7 +260,9 @@
     jQuery(document).ready(function($) {
         //jQuery Functionality
         $('#example').DataTable();
+        $('#sortTable').DataTable();
         $(document).on('click', '#example tbody tr button', function() {
+
             // $("#modaldata tbody tr").html("");
             //$("#modaldata tbody tr").html($(this).closest("tr").html());
             //$("#exampleModal").modal("show");
