@@ -13,12 +13,12 @@ class userSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
+        /*DB::table('users')->insert([
              'user_id' => "1234"
              
              'user_type' => "Admin"
 
 
-        ]);
+        ]);*/
     }
 }
