@@ -10,26 +10,27 @@ class userAuth extends Controller
 {
     function userLogin(Request $request)
     {
-        return $request->input('username');
-        return $request->input('password');
-
         // validate requests
         $request->validate([
             'email' => 'required|email',
-            'password' => 'required|min:5|max 10'
+            'password' => 'required|min:5|max:10'
         ]);
 
         $userInfo = user_new::where('email', '', $request->email)->first();
-        if($userInfo){
+        if (!$userInfo) {
             return back()->with('Wrong email address');
-        }else {
+        } else {
             //check password
-            if(Hash::check($request-> password,$userInfo-> password)){
-
-            }else{
-                return back()-> with('Incorrect password');
+            if (Hash::check($request->password, $userInfo->password)) {
+                return redirect('/home');
+            } else {
+                return back()->with('Incorrect password');
             }
         }
-        
+    }
+
+    function check(Request $request)
+    {
+        return $request->input(); 
     }
 }

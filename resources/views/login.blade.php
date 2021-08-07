@@ -112,6 +112,7 @@
                     </li>
                     <li class="nav-item" id="navitem">
                         <button type="submit" id="login" name="button" class="btn btn-primary btn-sm">Login</button>
+
                     </li>
                 </ul>
                 <a href="/register"></a>

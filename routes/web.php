@@ -90,7 +90,7 @@ Route::post('/userDetails', [RegisterController::class, 'store']);
 
 //login_auth
 Route::post('/user', [userAuth::class, 'userLogin']);
-
+//Route::post('check',[userAuth::class, 'check']);
 
 //add new customer in customer page
 Route::post('/saveTask', [RegisterController::class, 'addCustomer']);

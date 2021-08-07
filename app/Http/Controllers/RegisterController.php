@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 
-
 use App\Models\Notice;
 
 use Illuminate\Http\Request;

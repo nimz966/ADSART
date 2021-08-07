@@ -116,7 +116,7 @@
             <div class="modal-content">
 
                 <div class="col-12 form-input">
-                    <form method="post" action="{{url ('userDetails') }}">
+                    <form method="" action="{{url ('userDetails') }}">
 
                         @if(Session::get('success'))
                         <div class="alert alert-success">
