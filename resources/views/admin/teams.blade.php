@@ -13,7 +13,7 @@
     <div class="wrap-table100">
 
         <!-- Event Delails Table -->
-        <table class="table100 ver1 m-b-110" id="example">
+        <table class="table100 ver1 m-b-110 table-striped" id="example">
             <!-- Table Head -->
             <div class="table100-head">
 
@@ -24,7 +24,7 @@
                         <th class="cell100 column3">Date-Time</th>
                         <th class="cell100 column4">Location</th>
                         <th class="cell100 column5">No of Cameras</th>
-                        <th class="cell100 column6"></th>
+
                     </tr>
                 </thead>
 
@@ -39,9 +39,9 @@
                         <td class="cell100 column2">{{ $event->event_name }}</td>
                         <td class="cell100 column3">{{ $event->event_date }}</td>
                         <td class="cell100 column4">{{ $event->location }}</td>
-                        <td class="cell100 column5">{{ $event->no_of_cams }}</td>
-                        <td class="cell100 column6">
-                            <a href="{{ route('team-details', $event->event_id) }}">status</a>
+                        <td class="cell100 column5">{{ $event->no_of_cams }}
+
+                            <a class="float-right" href="{{ route('team-details', $event->event_id) }}">status</a>
                         </td>
                     </tr>
                     @endforeach
