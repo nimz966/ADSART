@@ -2,7 +2,10 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class userSeeder extends Seeder
 {
@@ -13,12 +16,13 @@ class userSeeder extends Seeder
      */
     public function run()
     {
-        /*DB::table('users')->insert([
-             'user_id' => "1234"
-             
-             'user_type' => "Admin"
-
-
-        ]);*/
+        DB::table('users')->insert([
+            'user_name' => "adminadsArt",
+            'user_type' => "Admin",
+            'password'  => Hash::make('password'),
+            'email'    => "adsArt@gmial.com",
+            'address'  => "No 23, kalutara",
+            'phone_no' => "011 1234567",
+        ]);
     }
 }

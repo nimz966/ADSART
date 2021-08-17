@@ -132,7 +132,8 @@
                         <!-- Enter contact number -->
                         <div class="form-group">
                             <lable>Contact number</lable>
-                            <input type="tel" name="phone_no" id="phone" class="form-control" pattern="[0-9]{3} [0-9]{7}">
+                            <input type="tel" name="phone_no" id="phone" class="form-control"
+                                pattern="[0-9]{3} [0-9]{7}">
                             <small>Format: 011 8645678</small>
                         </div>
 
@@ -161,174 +162,159 @@
         </div>
     </div>
 
-    <!-- Search events -->
-    <div class="wrap-table100">
-        <!-- Table Title -->
-        <div class="table-title">
-            <div class="row">
-                <!-- Enter entries -->
-                <div class="col-sm-8 mb-4">
-                    Show <select>
-                        <option>10</option>
-                        <option>25</option>
-                        <option>50</option>
-                        <option>75</option>
-                    </select> entries
-                </div>
-                <!-- Search bar -->
-                <div class="col-sm-4 mb-4">
-                    <div class="search-box">
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                        <input type="text" class="form-control" placeholder="Search&hellip;">
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <!-- Event details table -->
-        <div class="table100 ver1 m-b-110">
 
+    <!-- Event details table -->
+    <div class="wrapper-table100">
+        <table class="table100 ver1 m-b-110" id="example">
             <!-- Table head -->
             <div class="table100-head">
-                <table>
-                    <thead>
-                        <tr class="row100 head">
-                            <th class="cell100 column1">Date-Time</th>
-                            <th class="cell100 column2">Event Name</th>
-                            <th class="cell100 column3">Location</th>
-                            <th class="cell100 column4">No of Cameras</th>
-                            <th class="cell100 column5">Status</th>
-                            <th class="cell100 column5"></th>
-                        </tr>
-                    </thead>
-                </table>
+
+                <thead>
+                    <tr class="row100 head">
+                        <th class="cell100 column1">Date-Time</th>
+                        <th class="cell100 column2">Event Name</th>
+                        <th class="cell100 column3">Location</th>
+                        <th class="cell100 column4">No of Cameras</th>
+                        <th class="cell100 column5">Status</th>
+                        <th class="cell100 column5"></th>
+                    </tr>
+                </thead>
+
             </div>
 
             <!-- Table body -->
             <div class="table100-body js-pscroll">
-                <table>
-                    <tbody>
-                        @foreach($events as $event)
-                        <tr class="row100 body">
-                            <td class="cell100 column1">{{$event->event_date}}</td>
-                            <td class="cell100 column2">{{$event->event_name}}</td>
-                            <td class="cell100 column3">{{$event->Location}}</td>
-                            <td class="cell100 column4">{{$event->no_of_cams}}</td>
-                            <td class="cell100 column5">{{$event->status}}</td>
-                            <td class="cell100 column6">
-                                <ul class="list-inline m-0">
-                                    <!-- Edit option-->
-                                    <li class="list-inline-item" data-toggle="modal" data-placement="bottom" title="Edit" data-target="#mymodal"><a id="edit"><i class="fa fa-edit"></i></a>
-                                    </li>
-                                    <!-- Edit event modal -->
-                                    <div class="modal fade bd-example-modal-lg" id="mymodal">
-                                        <div class="modal-dialog modal-md" role="document">
-                                            <div class="modal-content">
 
-                                                <!-- modal header -->
-                                                <div class="modal-header">
-                                                    <h4 class="modal-title">Change Event Details</h4>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                </div>
-                                                <div class="container"></div>
+                <tbody>
+                    @foreach($events as $event)
+                    <tr class="row100 body">
+                        <td class="cell100 column1">{{$event->event_date}}</td>
+                        <td class="cell100 column2">{{$event->event_name}}</td>
+                        <td class="cell100 column3">{{$event->location}}</td>
+                        <td class="cell100 column4">{{$event->no_of_cams}}</td>
+                        <td class="cell100 column5">{{$event->status}}</td>
+                        <td class="cell100 column6">
+                            <ul class="list-inline m-0">
+                                <!-- Edit option-->
+                                <li class="list-inline-item" data-toggle="modal" data-placement="bottom" title="Edit"
+                                    data-target="#mymodal"><a id="edit"><i class="fa fa-edit"></i></a>
+                                </li>
+                                <!-- Edit event modal -->
+                                <div class="modal fade bd-example-modal-lg" id="mymodal">
+                                    <div class="modal-dialog modal-md" role="document">
+                                        <div class="modal-content">
 
-                                                <!-- modal body-->
-                                                <div class="modal-body">
-                                                    <form>
+                                            <!-- modal header -->
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Change Event Details</h4>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-hidden="true">×</button>
+                                            </div>
+                                            <div class="container"></div>
 
-                                                        <!-- Enter event date -->
-                                                        <div class="form-group">
-                                                            <lable>Event Date</lable>
-                                                            <input type="date" class="form-control">
-                                                        </div>
+                                            <!-- modal body-->
+                                            <div class="modal-body">
+                                                <form>
 
-                                                        <!-- Enter standby date -->
-                                                        <div class="form-group">
-                                                            <lable>Standby Date</lable>
-                                                            <input type="date" class="form-control">
-                                                        </div>
+                                                    <!-- Enter event date -->
+                                                    <div class="form-group">
+                                                        <lable>Event Date</lable>
+                                                        <input type="date" class="form-control">
+                                                    </div>
 
-                                                        <!-- enter event name -->
-                                                        <div class="form-group">
-                                                            <lable>Event Name</lable>
-                                                            <input type="text" class="form-control">
-                                                        </div>
+                                                    <!-- Enter standby date -->
+                                                    <div class="form-group">
+                                                        <lable>Standby Date</lable>
+                                                        <input type="date" class="form-control">
+                                                    </div>
 
-                                                        <!-- Enter Location -->
-                                                        <div class="form-group">
-                                                            <lable>Location</lable>
-                                                            <input type="text" class="form-control">
-                                                        </div>
+                                                    <!-- enter event name -->
+                                                    <div class="form-group">
+                                                        <lable>Event Name</lable>
+                                                        <input type="text" class="form-control">
+                                                    </div>
 
-                                                        <!-- Enter customer name -->
-                                                        <div class="form-group">
-                                                            <lable>Customer Name</lable>
-                                                            <select type="text" class="form-control">
-                                                                <option></option>
-                                                            </select>
-                                                        </div>
+                                                    <!-- Enter Location -->
+                                                    <div class="form-group">
+                                                        <lable>Location</lable>
+                                                        <input type="text" class="form-control">
+                                                    </div>
 
-                                                        <!-- Enter starting time -->
-                                                        <div>
-                                                            <lable>Starting Time</lable>
-                                                            <input type="time" class="form-control">
-                                                        </div>
+                                                    <!-- Enter customer name -->
+                                                    <div class="form-group">
+                                                        <lable>Customer Name</lable>
+                                                        <select type="text" class="form-control">
+                                                            <option></option>
+                                                        </select>
+                                                    </div>
 
-                                                        <!-- Enter standby time -->
-                                                        <div>
-                                                            <lable>Standby Time</lable>
-                                                            <input type="time" class="form-control">
-                                                        </div>
+                                                    <!-- Enter starting time -->
+                                                    <div>
+                                                        <lable>Starting Time</lable>
+                                                        <input type="time" class="form-control">
+                                                    </div>
 
-                                                        <!-- Select number of cameras -->
-                                                        <div>
-                                                            <lable>Number of Cameras</lable>
-                                                            <input type="number" min="0" class="form-control">
-                                                        </div>
+                                                    <!-- Enter standby time -->
+                                                    <div>
+                                                        <lable>Standby Time</lable>
+                                                        <input type="time" class="form-control">
+                                                    </div>
 
-                                                        <!-- Enter special requirements -->
-                                                        <div>
-                                                            <lable>Special Requirements</lable>
-                                                            <textarea class="form-control"></textarea>
-                                                        </div>
-                                                    </form>
-                                                </div>
+                                                    <!-- Select number of cameras -->
+                                                    <div>
+                                                        <lable>Number of Cameras</lable>
+                                                        <input type="number" min="0" class="form-control">
+                                                    </div>
 
-                                                <!-- modal footer -->
-                                                <div class="modal-footer">
-                                                    <a href="#" data-dismiss="modal" class="btn btn-primary">Save
-                                                        Changes</a>
-                                                </div>
+                                                    <!-- Enter special requirements -->
+                                                    <div>
+                                                        <lable>Special Requirements</lable>
+                                                        <textarea class="form-control"></textarea>
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                            <!-- modal footer -->
+                                            <div class="modal-footer">
+                                                <a href="#" data-dismiss="modal" class="btn btn-primary">Save
+                                                    Changes</a>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
 
-                                    <!-- Button trigger modal for delete-->
-                                    <li class="list-inline-item" data-toggle="modal" data-placement="bottom" title="Delete" data-target="#exampleModal"><a id="delete"><i class="fa fa-trash"></i></a>
-                                    </li>
+                                <!-- Button trigger modal for delete-->
+                                <li class="list-inline-item" data-toggle="modal" data-placement="bottom" title="Delete"
+                                    data-target="#exampleModal"><a id="delete"><i class="fa fa-trash"></i></a>
+                                </li>
 
-                                    <!-- Modal for delete-->
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-body">
-                                                    Are you sure that you want to permanently delete this record ?
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Yes</button>
-                                                    <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">No</button>
-                                                </div>
+                                <!-- Modal for delete-->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+                                                Are you sure that you want to permanently delete this record ?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary btn-sm"
+                                                    data-dismiss="modal">Yes</button>
+                                                <button type="button" class="btn btn-primary btn-sm"
+                                                    data-dismiss="modal">No</button>
                                             </div>
                                         </div>
                                     </div>
-                                </ul>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                                </div>
+                            </ul>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+
             </div>
-        </div>
+        </table>
+
     </div>
 
 </div>

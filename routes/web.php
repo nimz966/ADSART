@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\NoticeController;
+use App\Http\Controllers\UserEditController;
 use App\Http\Controllers\userAuth;
 use Illuminate\Http\Request;
 
@@ -89,8 +92,10 @@ Route::get('/login', function () {
 Route::post('/userDetails', [RegisterController::class, 'store']);
 
 //login_auth
-Route::post('/user', [userAuth::class, 'userLogin']);
-//Route::post('check',[userAuth::class, 'check']);
+Route::post('/checklogin', [userAuth::class, 'checkLogin']);
+Route::post('/succussLogin', [userAuth::class, 'succussLogin']);
+Route::post('/main/logout', [userAuth::class, 'logout']);
+//Route::post('check',[userAuth::class, 'check']); 
 
 //add new customer in customer page
 Route::post('/saveTask', [RegisterController::class, 'addCustomer']);
@@ -101,16 +106,16 @@ Route::post('/insertCustomer', [RegisterController::class, 'insertCustomer']);
 //add new employee
 Route::post('/addEmployee', [RegisterController::class, 'addEmployee']);
 
-//delete user(employee.costomer)
+//delete user(employee.customer)
 Route::get('/deleteUser/{user_id}', [RegisterController::class, 'deleteUser']);
 
 
 
 // create event
-Route::post('/createEvent', [RegisterController::class, 'createEvent']);
+Route::post('/createEvent', [EventController::class, 'createEvent']);
 
 //Publish notice
-Route::post('/addNotice', [RegisterController::class, 'addNotice']);
+Route::post('/addNotice', [NoticeController::class, 'addNotice']);
 
 //delete Notice
-Route::get('/deleteNotice/{notice_id}', [RegisterController::class, 'deleteNotice']);
+Route::get('/deleteNotice/{notice_id}', [NoticeController::class, 'deleteNotice']);

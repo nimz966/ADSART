@@ -96,18 +96,42 @@
             </div>
         </div>
         <!-- Login Form -->
+        <!-- @if (isset(Auth::user()->email))
+        <script>
+            window.location = "/home"
+        </script>
+        @endif -->
+
+        @if ($message = Session:: get ('error'))
+        <div class="alert alert-danger alert-block">
+            <button class="type-button" class="close" data-dismiss="alert">X</button>
+            <strong>{{$message}}</strong>
+        </div>
+        @endif
+
+
+
+        @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                <li> {{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
         <div class="collapse navbar-collapse" id="navbarNav">
-            <form action=/user method="post">
-                @csrf
+            <form method="post" action=/checklogin>
+                @csrf 
                 <ul class="navbar-nav">
                     <li class="nav-item" id="navitem">
 
                         <input type="text" name="email" class="form-control h-100" placeholder="Enter email" value="{{old('email')}}">
-                        <sapn class="text danger">@error('email') {{$message}} @enderror</sapn>
+                        <!-- <span class="text danger">@error('email') {{$message}} @enderror</span> -->
                     </li>
                     <li class="nav-item" id="navitem">
                         <input type="password" name="password" class="form-control h-100" placeholder="Enter password">
-                        <sapn class="text danger">@error ('password') {{$message}} @enderror</sapn>
+                        <!-- <span class="text danger">@error ('password') {{$message}} @enderror</span> -->
 
                     </li>
                     <li class="nav-item" id="navitem">
@@ -115,7 +139,7 @@
 
                     </li>
                 </ul>
-                <a href="/register"></a>
+                <!-- <a href="/register"></a> -->
             </form>
         </div>
     </nav>
