@@ -96,11 +96,11 @@
             </div>
         </div>
         <!-- Login Form -->
-        <!-- @if (isset(Auth::user()->email))
+         <!-- @if (isset(Auth::user()->email))
         <script>
             window.location = "/home"
         </script>
-        @endif -->
+        @endif  -->
 
         @if ($message = Session:: get ('error'))
         <div class="alert alert-danger alert-block">

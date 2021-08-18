@@ -36,8 +36,7 @@
 
                         <div class="form-group">
                             <lable>Contact number</lable>
-                            <input type="tel" name="phone_no" id="phone" class="form-control"
-                                pattern="[0-9]{3} [0-9]{7}">
+                            <input type="tel" name="phone_no" id="phone" class="form-control" pattern="[0-9]{3} [0-9]{7}">
                             <small>Format: 011 8645678</small><br>
                         </div>
 
@@ -97,8 +96,7 @@
 
 
                             <!-- Button trigger modal for edit-->
-                            <li class="list-inline-item edit float-right" data-toggle="modal" data-placement="bottom"
-                                title="Edit" data-target="#editModal">
+                            <li class="list-inline-item edit float-right" data-toggle="modal" data-placement="bottom" title="Edit" data-target="#editModal">
                                 <a href="#" type="button" id="edit"><i class="fa fa-edit "></i></a>
 
                             </li>
@@ -112,8 +110,7 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h1 class="modal-title"> Edit Customer Details</h1>
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-hidden="true">×</button>
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                         </div>
 
                                         <div class="modal-body">
@@ -133,8 +130,7 @@
 
                                                 <div class="form-group">
                                                     <lable>Contact number</lable>
-                                                    <input type="tel" value="" name="phone_no" class="form-control"
-                                                        pattern="[0-9]{3} [0-9]{7}">
+                                                    <input type="tel" value="" name="phone_no" class="form-control" pattern="[0-9]{3} [0-9]{7}">
                                                     <small>Format: 011 8645678</small>
                                                 </div>
 
@@ -162,14 +158,11 @@
                             </div>
 
                             <!-- Button trigger modal for delete-->
-                            <li class="list-inline-item float-right" data-toggle="modal" data-placement="bottom"
-                                title="Delete" data-target="#exampleModal1"><a id="delete"><i
-                                        class="fa fa-trash"></i></a>
+                            <li class="list-inline-item float-right" data-toggle="modal" data-placement="bottom" title="Delete" data-target="#exampleModal1"><a id="delete"><i class="fa fa-trash"></i></a>
                             </li>
 
                             <!-- Modal for delete -->
-                            <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog"
-                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-body">
@@ -177,10 +170,8 @@
                                         </div>
 
                                         <div class="modal-footer">
-                                            <a href="/deleteUser/{{$task->user_id}}" type="button"
-                                                class="btn btn-primary btn-sm">Yes </a>
-                                            <button type="button" class="btn btn-primary btn-sm"
-                                                data-dismiss="modal">No</button>
+                                            <a href="/deleteUser/{{$task->user_id}}" type="button" class="btn btn-primary btn-sm">Yes </a>
+                                            <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">No</button>
                                         </div>
 
                                     </div>
@@ -198,5 +189,5 @@
     </div>
 
 
-
-    @endsection('content')
+</div>
+@endsection('content')

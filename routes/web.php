@@ -25,6 +25,7 @@ Route::get('/home', function () {
 Route::get('/customers', function () {
     $data = App\Models\user_new::all();
     return view('admin/customers')->with('tasks', $data);
+    
 })->name('customers');
 
 Route::get('/events', function () {

@@ -17,7 +17,7 @@
         <form action="/event/{{$event_id}}/assignment" method="post">
             {{csrf_field()}}
             <div class="row pt-3">
-                @foreach($positions as $position)
+                @foreach($positions as $position)   
                 <div class="col-4">
                     <div class="form-check">
                         <lable>{{$position->description}}</lable>
