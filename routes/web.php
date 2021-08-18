@@ -87,6 +87,10 @@ Route::get('/employee-event-report', function () {
 Route::get('/login', function () {
     return view('login');
 })->name('login');
+
+Route::get('/employeehome', function () {
+    return view('employee/employeehome');
+});
 //.... end_of_views ...............................|
 
 //registration

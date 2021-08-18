@@ -188,6 +188,7 @@
 
     </div>
 
+</div>
 
 </div>
 @endsection('content')
