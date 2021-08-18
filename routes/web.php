@@ -90,6 +90,9 @@ Route::get('/login', function () {
 Route::get('/employeehome', function () {
     return view('employee/employeehome');
 });
+Route::get('/customerhome', function () {
+    return view('customer/customerhome');
+});
 //.... end_of_views ...............................|
 
 //registration
