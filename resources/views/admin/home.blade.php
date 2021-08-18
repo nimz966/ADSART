@@ -13,7 +13,7 @@
     <a href="{{url('/login')}}">Logout</a>
     @else
     <script>
-        window.location = "/main"
+    window.location = "/main"
     </script>
     @endif
 
