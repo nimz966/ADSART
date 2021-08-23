@@ -126,3 +126,5 @@ Route::post('/addNotice', [NoticeController::class, 'addNotice']);
 
 //delete Notice
 Route::get('/deleteNotice/{notice_id}', [NoticeController::class, 'deleteNotice']);
+
+Route::post('update','App\Http\Controllers\RegisterController@update')->name('update');

@@ -266,6 +266,16 @@
         });
     });
     </script>
+    <script>
+    $(document).on('click', '.edit', function() {
+        var _this = $(this).parents('tr');
+        $('#user_id').val(_this.find('.user_id').text());
+        $('#user_name').val(_this.find('.user_name').text());
+        $('#address').val(_this.find('.address').text());
+        $('#phone_no').val(_this.find('.phone_no').text());
+        $('#email').val(_this.find('.email').text());
+    });
+    </script>
 </body>
 
 </html>

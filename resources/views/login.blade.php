@@ -82,6 +82,10 @@
     .navbar-brand {
         font-family: sans-serif;
     }
+
+    #msg {
+        float: right;
+    }
     </style>
 </head>
 
@@ -103,24 +107,7 @@
         </script>
         @endif -->
 
-        @if ($message = Session:: get ('error'))
-        <div class="alert alert-danger alert-block">
-            <button class="type-button" class="close" data-dismiss="alert">X</button>
-            <strong>{{$message}}</strong>
-        </div>
-        @endif
 
-
-
-        @if (count($errors) > 0)
-        <div class="alert alert-danger">
-            <ul>
-                @foreach($errors->all() as $error)
-                <li> {{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
         <div class="collapse navbar-collapse" id="navbarNav">
             <form method="post" action=/checklogin>
                 @csrf
@@ -146,7 +133,24 @@
         </div>
     </nav>
 
+    @if ($message = Session:: get ('error'))
+    <div class="alert alert-danger alert-block">
+        <button class="type-button" class="close" data-dismiss="alert">X</button>
+        <strong>{{$message}}</strong>
+    </div>
+    @endif
 
+
+
+    @if (count($errors) > 0)
+    <div class="col-5" id="msg">
+
+        @foreach($errors->all() as $error)
+        <div class="alert alert-warning" role="alert"> {{ $error }}</div>
+        @endforeach
+
+    </div>
+    @endif
 </body>
 
 </html>
