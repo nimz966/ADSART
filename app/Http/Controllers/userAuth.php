@@ -49,6 +49,6 @@ class userAuth extends Controller
     function logout()
     {
         Auth::logout();
-        return redirect('main');
+        return redirect('login');
     }
 }

@@ -21,7 +21,7 @@
                 <!-- modal body-->
                 <form method="post" action="/createEvent">
                     <div class="modal-body">
-                        {{csrf_field()}}
+                        {{csrf_field()}}    
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                         <!-- Enter event date -->

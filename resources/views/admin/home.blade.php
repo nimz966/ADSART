@@ -13,7 +13,7 @@
     
     @else
     <script>
-        window.location = "/login"
+        window.location = "/authUser";
     </script>
     @endif
 

@@ -102,8 +102,8 @@ Route::post('/userDetails', [RegisterController::class, 'store']);
 //login_auth
 Route::post('/checklogin', [userAuth::class, 'checkLogin']);
 Route::post('/succussLogin', [userAuth::class, 'succussLogin']);
-Route::post('/main/logout', [userAuth::class, 'logout']);
-//Route::post('check',[userAuth::class, 'check']); 
+Route::get('/logout', [userAuth::class, 'logout'])->name('logout');
+
 
 //add new customer in customer page
 Route::post('/saveTask', [RegisterController::class, 'addCustomer']);
