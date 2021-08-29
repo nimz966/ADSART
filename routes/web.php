@@ -26,8 +26,8 @@ Route::group(['middleware' => 'auth'], function () {
     })->name('home');
 
     Route::get('/customers', function () {
-        $data = App\Models\user_new::all();
-        return view('admin/customers')->with('tasks', $data);
+        $data = App\Models\user_new::where('user_type', 'customer')->get();
+        return view('admin/customers')->with('customers', $data);
     })->name('customers');
 
     Route::get('/events', function () {
@@ -114,7 +114,7 @@ Route::group(['middleware' => 'auth'], function () {
     //delete Notice
     Route::get('/deleteNotice/{notice_id}', [NoticeController::class, 'deleteNotice']);
 
-    Route::post('update', 'App\Http\Controllers\RegisterController@update')->name('update');
+    Route::post('/customer-update', 'App\Http\Controllers\RegisterController@update')->name('customerUpdate');
 
     // full-calendar
 
