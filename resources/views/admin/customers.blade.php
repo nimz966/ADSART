@@ -95,7 +95,7 @@
                         <td class="email">{{$customer->email}}</td>
                         <td>
                             <!-- Button trigger modal for edit-->
-                            <a type="button" class="m-r-15 text-muted edit " data-toggle="modal" data-userid="{{$customer->user_id}}" data-target="#update">
+                            <a type="button" class="m-r-15 text-muted edit" data-toggle="modal" data-userid="{{$customer->user_id}}" data-target="#update">
                                 <i class="fa fa-edit" id="edit"></i>
                             </a>
                         </td>

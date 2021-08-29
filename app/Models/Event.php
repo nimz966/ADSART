@@ -28,4 +28,14 @@ class Event extends Model
         'quotation_id',
         'ending_time'
     ];
+
+    function users()
+    {
+        return $this->belongsToMany(User::class, 'user_events', 'event_id', 'user_id');
+    }
+
+    function user_events()
+    {
+        return $this->hasMany(UserEvent::class, 'event_id');
+    }
 }

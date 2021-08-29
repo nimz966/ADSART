@@ -5,6 +5,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\FullCalenderController;
+use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserEditController;
 use App\Http\Controllers\userAuth;
 use Illuminate\Http\Request;
@@ -48,6 +49,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/employees', function () {
         $employees = App\Models\User::where('user_type', 'employee')->get();
         $positions = App\Models\Positions::All();
+
         return view('admin/employees', compact('employees', 'positions'));
     })->name('employees');
 
@@ -59,12 +61,6 @@ Route::group(['middleware' => 'auth'], function () {
         $events = App\Models\Event::all();
         return view('admin/teams', compact('events'));
     })->name('teams');
-
-    Route::get('/team/{id}', function (Request $request) {
-        $event_id = $request->id;
-        $positions = App\Models\Positions::All();
-        return view('admin/team-details', compact('positions', 'event_id'));
-    })->name('team-details');
 
     Route::get('/newnotice', function () {
         return view('admin/newnotice');
@@ -92,6 +88,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/customerhome', function () {
         return view('customer/customerhome');
     });
+
+    // employee assignment to events (team)
+    Route::get('/team/{id}', [TeamController::class, 'createTeam'])->name('team-details');
+
+    Route::post('/event/{event_id}/assign', [TeamController::class, 'assignUsers'])->name('assignUsers');
 
     //add new customer in customer page
     Route::post('/saveTask', [RegisterController::class, 'addCustomer']);

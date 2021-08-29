@@ -10,5 +10,10 @@ class Positions extends Model
     use HasFactory;
     protected $table = "positions";
     protected $primaryKey = 'position_id';
-    protected $fillable = ['notice_id', 'description'];
+    protected $fillable = ['position_id', 'description'];
+
+    function users()
+    {
+        return $this->belongsToMany(User::class, 'user_positions', 'position_id', 'user_id',);
+    }
 }
