@@ -12,7 +12,7 @@ use App\Models\Notice;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Support\Facades\DB;
 use App\Models\user_new;
 
 //use App\models\user;
@@ -110,5 +110,17 @@ class RegisterController extends Controller
         $data = user_new::find($user_id);
         $data->delete();
         return redirect()->back();
+    }
+
+    public function update(Request $request){
+        $update=[
+            'user_name'=>$request->user_name,
+            'address'=>$request->address,
+            'phone_no'=>$request->phone_no,
+            'email'=>$request->email
+
+        ];
+      DB::table('users')->where('user_id', $request->user_id)->update($update);
+        return redirect()->back()->with('success','Has been updated successfully');
     }
 }

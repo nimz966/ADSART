@@ -11,6 +11,13 @@
 
     <title>SB Admin 2 - Dashboard</title>
 
+    <!-- Bootstrap core JavaScript-->
+    <script src="{{ asset('theme/vendor/jquery/jquery.min.js') }}" defer></script>
+    <script src="{{ asset('theme/vendor/bootstrap/js/bootstrap.bundle.min.js') }}" defer></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="{{ asset('theme/vendor/jquery-easing/jquery.easing.min.js') }}" defer></script>
+
     <!-- Custom fonts for this template-->
     <link href="{{ asset('theme/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i') }}" rel="stylesheet">
@@ -21,6 +28,10 @@
     <!-- Custom styles for tables-->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js" defer></script>
 </head>
 
 <body id="page-top">
@@ -193,7 +204,7 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{{route('logout') }}">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    
+
                                     logout
                                 </a>
                                 </a>
@@ -217,22 +228,8 @@
         </div>
     </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="{{ asset('theme/vendor/jquery/jquery.min.js') }}" defer></script>
-    <script src="{{ asset('theme/vendor/bootstrap/js/bootstrap.bundle.min.js') }}" defer></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="{{ asset('theme/vendor/jquery-easing/jquery.easing.min.js') }}" defer></script>
-
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('theme/js/sb-admin-2.min.js') }}" defer></script>
-
-    <!-- Page level plugins -->
-    <script src="{{ asset('theme/vendor/chart.js/Chart.min.js') }}" defer></script>
-
-    <!-- Page level custom scripts -->
-    <script src="{{ asset('theme/js/demo/chart-area-demo.js') }}" defer></script>
-    <script src="{{ asset('theme/js/demo/chart-pie-demo.js') }}" defer></script>
 
     <!-- <script src="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.js"></script> -->
     <!-- Latest compiled and minified Locales -->
@@ -254,6 +251,17 @@
             });
         });
     </script>
+    <script>
+        $(document).on('click', '.edit', function() {
+            var _this = $(this).parents('tr');
+            $('#user_id').val(_this.find('.user_id').text());
+            $('#user_name').val(_this.find('.user_name').text());
+            $('#address').val(_this.find('.address').text());
+            $('#phone_no').val(_this.find('.phone_no').text());
+            $('#email').val(_this.find('.email').text());
+        });
+    </script>
+    @stack('scripts')
 </body>
 
 </html>

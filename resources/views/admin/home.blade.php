@@ -3,20 +3,13 @@
 @section('content')
 <div class="container-fluid">
 
-    <h1>Home</h1>
-    <!-- {{Auth::user()-> email}} -->
-    @if (isset(Auth::user()-> email))
-    <!-- <div class="alert alert-danger success-block"> -->
-        <!-- <strong>welcom {{Auth::user()->email}}</strong> -->
-    <!-- </div> -->
-    <br>
-    
-    @else
-    <script>
-        window.location = "/authUser";
-    </script>
-    @endif
-
+    <div class="row mt-3">
+        <div id="calendar"></div>
+    </div>
 
 </div>
 @endsection('content')
+
+@push('scripts')
+<script src="{{ asset('js/event.js') }}"></script>
+@endpush

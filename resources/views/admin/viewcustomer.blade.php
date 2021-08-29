@@ -25,11 +25,6 @@
             </div>
         </div>
 
-
-
-
-
-
         <div class="row justify-content-center mt-3">
 
             <table class="table table-striped w-85 ml-3">
