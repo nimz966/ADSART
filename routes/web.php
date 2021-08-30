@@ -84,9 +84,13 @@ Route::group(['middleware' => 'auth'], function () {
     })->name('employee-event-report');
 
     Route::get('/employeehome', function () {
-        return view('employee/employeehome');
+        $employees = App\Models\User::where('user_type', 'employee')->get()->toArray();
+        $data = App\Models\Notice::all();
+        return view('employee/employeehome', compact('employees', 'data'));
+        // return view('employee/employeehome')->with('notice', $data);
     });
     Route::get('/customerhome', function () {
+        
         return view('customer/customerhome');
     });
 
