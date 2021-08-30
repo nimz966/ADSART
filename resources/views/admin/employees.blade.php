@@ -29,11 +29,11 @@
                         </div>
 
                         <!-- Employee NIC -->
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <lable>NIC</lable>
                             <label for="quantity"></label>
                             <input type="text" min="9" max="9" class="form-control">
-                        </div>
+                        </div> -->
 
 
                         <!-- Employee Address -->
@@ -57,14 +57,14 @@
                         </div>
 
                         <!-- Employee status -->
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <lable>Employee Status</lable>
                             <select name="Select Status" class="form-control">
                                 <option>Temporary</option>
                                 <option>Permanent</option>
 
                             </select>
-                        </div>
+                        </div> -->
 
                         <div class="form-group">
                             <lable> Password </lable>

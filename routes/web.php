@@ -79,7 +79,8 @@ Route::group(['middleware' => 'auth'], function () {
     })->name('event-report');
 
     Route::get('/employee-event-report', function () {
-        return view('admin/employee-event-report');
+        $employees = App\Models\User::where('user_type', 'employee')->get()->toArray();
+        return view('admin/employee-event-report')->with('employees', $employees);
     })->name('employee-event-report');
 
     Route::get('/employeehome', function () {

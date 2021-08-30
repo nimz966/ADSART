@@ -12,8 +12,9 @@
             <div class="col-6">
                 <select class="form-group w-75 h-75 mr-3">
                     <option>Select Employee</option>
-                    <option></option>
-
+                    @foreach($employees as $emp)
+                    <option value="{{$emp['user_id']}}">{{$emp['user_name']}}</option>
+                    @endforeach
                 </select>
                 <a href="" class="btn btn-primary h-75">Search</a>
             </div>
