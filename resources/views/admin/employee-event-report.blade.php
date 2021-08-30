@@ -13,10 +13,12 @@
                 <select class="form-group w-75 h-75 mr-3">
                     <option>Select Employee</option>
                     <option></option>
+
                 </select>
                 <a href="" class="btn btn-primary h-75">Search</a>
             </div>
         </div>
+
         <!-- Sub heading -->
         <h2 class="row justify-content-center mt-3">(employee name)Employee-Event Report</h2>
 

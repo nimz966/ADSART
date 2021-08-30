@@ -183,7 +183,7 @@
                         <th class="cell100 column2">Location</th>
                         <th class="cell100 column2">Starting Time</th>
                         <th class="cell100 column2">Ending Time</th>
-                        <th class="cell100 column2">Standbt Time</th>
+                        <th class="cell100 column2">Standby Time</th>
                         <th class="cell100 column2">No of Cameras</th>
                         <th class="cell100 column1" colspan="2">Actions</th>
                     </tr>

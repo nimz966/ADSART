@@ -36,7 +36,8 @@
 
                         <div class="form-group">
                             <lable>Contact number</lable>
-                            <input type="tel" name="phone_no" id="phone" class="form-control" pattern="[0-9]{3} [0-9]{7}">
+                            <input type="tel" name="phone_no" id="phone" class="form-control"
+                                pattern="[0-9]{3} [0-9]{7}">
                             <small>Format: 011 8645678</small><br>
                         </div>
 
@@ -44,6 +45,11 @@
                             <lable>Email</lable>
                             <input type="email" name="email" class="form-control">
                         </div>
+                        <div class="form-group">
+                            <lable> Password </lable>
+                            <input type="password" name="password" class="form-control h-100">
+                        </div>
+
                         <div class="modal-footer">
                             <div class="form-group">
                                 <div>
@@ -95,12 +101,14 @@
                         <td class="email">{{$customer->email}}</td>
                         <td>
                             <!-- Button trigger modal for edit-->
-                            <a type="button" class="m-r-15 text-muted edit" data-toggle="modal" data-userid="{{$customer->user_id}}" data-target="#update">
+                            <a type="button" class="m-r-15 text-muted edit" data-toggle="modal"
+                                data-userid="{{$customer->user_id}}" data-target="#update">
                                 <i class="fa fa-edit" id="edit"></i>
                             </a>
                         </td>
                         <td>
-                            <a type="button" class="m-r-15 text-muted delete" data-toggle="modal" data-userid="{{$customer->user_id}}" data-target="#exampleModal1">
+                            <a type="button" class="m-r-15 text-muted delete" data-toggle="modal"
+                                data-userid="{{$customer->user_id}}" data-target="#exampleModal1">
                                 <i class="fa fa-trash" id="delete"></i>
                             </a>
                         </td>
@@ -147,7 +155,8 @@
 
                     <div class="form-group">
                         <lable>Contact number</lable>
-                        <input type="tel" id="phone_no" value="" name="phone_no" class="form-control" pattern="[0-9]{3} [0-9]{7}">
+                        <input type="tel" id="phone_no" value="" name="phone_no" class="form-control"
+                            pattern="[0-9]{3} [0-9]{7}">
                         <small>Format: 011 8645678</small>
                     </div>
                     <div class="form-group">
@@ -169,7 +178,8 @@
     </div>
 </div>
 <!-- Modal for delete -->
-<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
@@ -188,31 +198,31 @@
 
 @push('scripts')
 <script>
-    $(document).ready(function() {
-        var deleteCustomerId;
+$(document).ready(function() {
+    var deleteCustomerId;
 
-        $('.delete').on('click', function() {
-            deleteCustomerId = $(this).data('userid');
-        });
-
-        $('.confirm-delete').on('click', function() {
-            window.location.replace("/deleteUser/" + deleteCustomerId);
-        });
-
-        $('.cancel-delete').on('click', function() {
-            deleteCustomerId = undefined;
-        });
-
-        $('.edit').on('click', function() {
-            var _this = $(this).parents('tr');
-            var userId = $(this).data('userid');
-
-            $('#user_id').val(userId);
-            $('#user_name').val(_this.find('.user_name').text());
-            $('#address').val(_this.find('.address').text());
-            $('#phone_no').val(_this.find('.phone_no').text());
-            $('#email').val(_this.find('.email').text());
-        });
+    $('.delete').on('click', function() {
+        deleteCustomerId = $(this).data('userid');
     });
+
+    $('.confirm-delete').on('click', function() {
+        window.location.replace("/deleteUser/" + deleteCustomerId);
+    });
+
+    $('.cancel-delete').on('click', function() {
+        deleteCustomerId = undefined;
+    });
+
+    $('.edit').on('click', function() {
+        var _this = $(this).parents('tr');
+        var userId = $(this).data('userid');
+
+        $('#user_id').val(userId);
+        $('#user_name').val(_this.find('.user_name').text());
+        $('#address').val(_this.find('.address').text());
+        $('#phone_no').val(_this.find('.phone_no').text());
+        $('#email').val(_this.find('.email').text());
+    });
+});
 </script>
 @endpush

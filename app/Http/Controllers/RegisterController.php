@@ -56,19 +56,29 @@ class RegisterController extends Controller
             "user_name" => "required",
             'address' => "required",
             "phone_no" => "required",
-            "email" => "required|email"
+            "email" => "required|email",
+            'password' => 'required',
         ];
 
         $request->validate($rules);
+        $user = User::create([
 
-        $user = new User;
-        $user->user_name = $request->input('user_name');
-        $user->address = $request->input('address');
-        $user->phone_no = $request->input('phone_no');
-        $user->user_type = "customer";
-        $user->email = $request->input('email');
-        $save = $user->save();
-        if ($save) {
+            'user_name' => $request->user_name,
+            'address' => $request->address,
+            'phone_no' => $request->phone_no,
+            'user_type'=>"customer",
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        // $user = new User;
+        // $user->user_name = $request->input('user_name');
+        // $user->address = $request->input('address');
+        // $user->phone_no = $request->input('phone_no');
+        // $user->user_type = "customer";
+        // $user->email = $request->input('email');
+        // $save = $user->save();
+        if ($user) {
             return back()->with('success', 'New user has been succsessfuly added');
         } else {
             return back()->with('fail', 'Something went wrong, try agin later');
@@ -92,13 +102,22 @@ class RegisterController extends Controller
     //show employee details in the table
     public function addEmployee(Request $request)
     {
-        $user = new User();
+        // $user = new User();
+        // $user->user_name = $request->input('user_name');
+        // $user->address = $request->input('address');
+        // $user->phone_no = $request->input('phone_no');
+        // $user->user_type = ("employee");
+        // $user->email = $request->input('email');
 
-        $user->user_name = $request->input('user_name');
-        $user->address = $request->input('address');
-        $user->phone_no = $request->input('phone_no');
-        $user->user_type = ("employee");
-        $user->email = $request->input('email');
+        $user = User::create([
+
+            'user_name' => $request->user_name,
+            'address' => $request->address,
+            'phone_no' => $request->phone_no,
+            'user_type'=>"employee",
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
 
         if ($user->save()) {
             $user->positions()->sync($request->positions);

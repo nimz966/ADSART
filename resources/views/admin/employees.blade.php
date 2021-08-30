@@ -65,6 +65,11 @@
 
                             </select>
                         </div>
+
+                        <div class="form-group">
+                            <lable> Password </lable>
+                            <input type="password" name="password" class="form-control h-100">
+                        </div>
                         <!-- Employee positions -->
                         <div class="modal-body row">
                             @foreach($positions as $pos)
