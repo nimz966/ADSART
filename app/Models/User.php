@@ -44,4 +44,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Positions::class, 'user_positions', 'user_id', 'position_id');
     }
+
+    function userEvents()
+    {
+        return $this->hasMany(UserEvent::class, 'user_id');
+    }
 }
