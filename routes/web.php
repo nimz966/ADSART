@@ -115,7 +115,14 @@ Route::group(['middleware' => 'auth'], function () {
     //delete Notice
     Route::get('/deleteNotice/{notice_id}', [NoticeController::class, 'deleteNotice']);
 
+    //update customer
     Route::post('/customer-update', 'App\Http\Controllers\RegisterController@update')->name('customerUpdate');
+
+    //update customer
+    Route::post('/event-update', 'App\Http\Controllers\EventController@update')->name('eventUpdate');
+
+    //delete event(employee.customer)
+    Route::get('/deleteEvent/{event_id}', [EventController::class, 'deleteEvent']);
 
     // full-calendar
 

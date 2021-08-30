@@ -21,17 +21,19 @@
                 <div class="col-4">
                     <div class="form-check">
                         <lable>{{$position->description}}</lable>
-                        <select id="{{$position->position_id}}" name="position[{{$position->position_id}}][]" class="form-control position" multiple>
+                        <select id="{{$position->position_id}}" name="position[{{$position->position_id}}][]"
+                            class="form-control position" multiple>
                             @foreach($position->users as $user)
-                            <option value="{{$user->user_id}}" {{isset($userPosition[$position->position_id]) && in_array($user->user_id, $userPosition[$position->position_id]) ? 'selected' : ''}}>{{$user->user_name}}</option>
+                            <option value="{{$user->user_id}}"
+                                {{isset($userPosition[$position->position_id]) && in_array($user->user_id, $userPosition[$position->position_id]) ? 'selected' : ''}}>
+                                {{$user->user_name}}</option>
                             @endforeach
                         </select>
                     </div>
                 </div>
                 @endforeach
                 <div>
-                    <!-- Add new position button -->
-                    <a href="#" class="btn btn-primary mt-3 ml-3">New Position</a>
+
                     <!-- Submit button -->
                     <button type="submit" class="btn btn-primary mt-3 ml-3">Submit</button>
                 </div>
@@ -43,33 +45,33 @@
 
 @push('scripts')
 <script>
-    // var selectedUsers = []
-    // $(document).ready(() => {
-    //     $('.position').on('change', function() {
-    //         var curId = $(this).attr('id');
-    //         var curVals = $(this).val();
-    //         curVals.forEach(function(id) {
-    //             selectedUsers.push(id);
-    //         })
+// var selectedUsers = []
+// $(document).ready(() => {
+//     $('.position').on('change', function() {
+//         var curId = $(this).attr('id');
+//         var curVals = $(this).val();
+//         curVals.forEach(function(id) {
+//             selectedUsers.push(id);
+//         })
 
-    //         $('.position').each((key, element) => {
+//         $('.position').each((key, element) => {
 
-    //             $(element).children('option').each((i, opt) => {
+//             $(element).children('option').each((i, opt) => {
 
-    //                 var optVal = $(opt).val();
+//                 var optVal = $(opt).val();
 
-    //                 if (curId == element.id) return;
+//                 if (curId == element.id) return;
 
-    //                 if (selectedUsers.includes(optVal)) {
-    //                     $(opt).attr('disabled', 'disabled')
-    //                 } else {
-    //                     $(opt).attr('disabled', false)
-    //                     selectedUsers = selectedUsers.filter(id => (id !== optVal));
-    //                 }
-    //             })
-    //         });
+//                 if (selectedUsers.includes(optVal)) {
+//                     $(opt).attr('disabled', 'disabled')
+//                 } else {
+//                     $(opt).attr('disabled', false)
+//                     selectedUsers = selectedUsers.filter(id => (id !== optVal));
+//                 }
+//             })
+//         });
 
-    //     })
-    // })
+//     })
+// })
 </script>
 @endpush
