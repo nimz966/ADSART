@@ -5,6 +5,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\FullCalenderController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserEditController;
 use App\Http\Controllers\userAuth;
@@ -78,17 +79,14 @@ Route::group(['middleware' => 'auth'], function () {
         return view('admin/event-report');
     })->name('event-report');
 
-    Route::get('/employee-event-report', function () {
-        $employees = App\Models\User::where('user_type', 'employee')->get()->toArray();
-        return view('admin/employee-event-report')->with('employees', $employees);
-    })->name('employee-event-report');
-
     Route::get('/employeehome', function () {
         return view('employee/employeehome');
     });
     Route::get('/customerhome', function () {
         return view('customer/customerhome');
     });
+
+    Route::get('/employee-event-report/{employeeId?}', [ReportController::class, 'employeeEvent'])->name('employee-event-report');
 
     // employee assignment to events (team)
     Route::get('/team/{id}', [TeamController::class, 'createTeam'])->name('team-details');

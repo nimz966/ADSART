@@ -34,6 +34,12 @@ class Event extends Model
         return $this->belongsToMany(User::class, 'user_events', 'event_id', 'user_id');
     }
 
+    function positions($userId)
+    {
+        return $this->belongsToMany(positions::class, 'user_events', 'event_id', 'position_id')
+            ->where('user_id', $userId);
+    }
+
     function user_events()
     {
         return $this->hasMany(UserEvent::class, 'event_id');
