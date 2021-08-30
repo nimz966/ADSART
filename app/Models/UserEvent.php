@@ -24,6 +24,11 @@ class UserEvent extends Model
     function events()
     {
         return $this->hasMany(Event::class, 'event_id');
+        
+    }
+    function positions()
+    {
+        return $this->hasMany(Positions::class,'position_id');
     }
 
 }
