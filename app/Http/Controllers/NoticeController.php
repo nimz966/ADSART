@@ -12,7 +12,7 @@ class NoticeController extends Controller
      {
          $notice = new Notice;
          $notice->description = $request->input('description');
-         $notice->user_id = $request->input('user_id');
+        //  $notice->user_id = $request->input('user_id');
          $save = $notice->save();
         if ($save) {
             return back()->with('success', 'Notice has been succsessfuly published');
