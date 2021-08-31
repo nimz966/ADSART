@@ -26,10 +26,7 @@
                                 <textarea class="form-control" name="description"
                                     placeholder="Enter your message here... " rows="10" cols="5"></textarea>
                             </div>
-                            <div class="form-group">
-                                <lable>user id</lable>
-                                <input type="text" name="user_id" class="form-control">
-                            </div>
+
                         </div>
                     </div>
 

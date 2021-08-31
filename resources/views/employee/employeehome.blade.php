@@ -84,15 +84,15 @@
                         </li>
 
                         <!-- Nav Item - Alerts -->
-                        <li class="nav-item dropdown no-arrow mx-1">
+                        <!-- <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-bell fa-fw"></i>
-                                <!-- Counter - Alerts -->
-                                <span class="badge badge-danger badge-counter">3+</span>
-                            </a>
-                            <!-- Dropdown - Alerts -->
-                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                <i class="fas fa-bell fa-fw"></i> -->
+                        <!-- Counter - Alerts -->
+                        <!-- <span class="badge badge-danger badge-counter">3+</span>
+                        </a> -->
+                        <!-- Dropdown - Alerts -->
+                        <!-- <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="alertsDropdown">
                                 <h6 class="dropdown-header">
                                     Alerts Center
@@ -134,16 +134,16 @@
                             </div>
                         </li>
 
-                        <!-- Nav Item - Messages -->
-                        <li class="nav-item dropdown no-arrow mx-1">
+                        <!- Nav Item - Messages -->
+                        <!-- <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-envelope fa-fw"></i>
-                                <!-- Counter - Messages -->
-                                <span class="badge badge-danger badge-counter">7</span>
-                            </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                <i class="fas fa-envelope fa-fw"></i> -->
+                        <!-- Counter - Messages -->
+                        <!-- <span class="badge badge-danger badge-counter">7</span> -->
+                        <!-- </a> -->
+                        <!-- Dropdown - Messages -->
+                        <!-- <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="messagesDropdown">
                                 <h6 class="dropdown-header">
                                     Message Center
@@ -195,15 +195,15 @@
                                 </a>
                                 <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
                             </div>
-                        </li>
+                        </li> -->
 
-                        <div class="topbar-divider d-none d-sm-block"></div>
+                        <!-- <div class="topbar-divider d-none d-sm-block"></div> -->
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Employee</span>
                                 <img class="img-profile rounded-circle"
                                     src="{{ asset('/theme/img/undraw_profile.svg') }}">
                             </a>
@@ -237,9 +237,7 @@
                                 <div class="col-6 p-3">
                                     <select class="form-group w-75 h-75 mr-3">
                                         <option>Select Your Name</option>
-                                        @foreach($employees as $emp)
-                                        <option value="{{$emp['user_id']}}">{{$emp['user_name']}}</option>
-                                        @endforeach
+
                                     </select>
                                     <a href="" class="btn btn-primary h-75">Search</a>
                                 </div>
@@ -304,11 +302,7 @@
                                 <div class="table100-body js-pscroll">
 
                                     <tbody>
-                                        @foreach($data as $task)
-                                        <tr class="row100 body p-2">
-                                            <td class="cell100 column1 p-3">{{$task->description}}</td>
-                                        </tr>
-                                        @endforeach
+
                                     </tbody>
 
                                 </div>

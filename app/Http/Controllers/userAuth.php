@@ -27,8 +27,10 @@ class userAuth extends Controller
            $user_type = $user->user_type;
            if($user_type == 'customer'){
             return view('customer.customerhome');
-           
-
+           }
+            elseif($user_type == 'employee'){
+                return view('employee.employeehome');
+               
            }
            else{
             return redirect('/home');
