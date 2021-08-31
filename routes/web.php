@@ -86,7 +86,7 @@ Route::group(['middleware' => 'auth'], function () {
         // return view('employee/employeehome')->with('notice', $data);
     });
     Route::get('/customerhome', function () {
-        
+
         return view('customer/customerhome');
     });
 
