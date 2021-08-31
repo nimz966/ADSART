@@ -22,10 +22,22 @@ class userAuth extends Controller
         );
 
         if (Auth::attempt($user_data)) {
+           // return redirect('/home');
+           $user = auth()->user(); 
+           $user_type = $user->user_type;
+           if($user_type == 'customer'){
+            return view('customer.customerhome');
+           
+
+           }
+           else{
             return redirect('/home');
+           }
+          // dd($user->user_type);
         } else {
             return back()->with('error', 'Wrong loging details');
         }
+    }
 
         // $userInfo = user_new::where('email', '', $request->email)->first();
         // if (!$userInfo) {
@@ -38,12 +50,31 @@ class userAuth extends Controller
         //     } else {
         //         return back()->with('Incorrect password');
         //     }
-        // }
-    }
+        // 
+       // function succussLogin()
+    
+       // $user = auth()->user();
+     //dd($user->user_type)
+    //  $user_type = $user->user_type;
+     
+     
+    //  if($user_type == 'customer'){
+    //     return "hi";
+    //  }
+    //  else{
+    //     return view('/home');
+    //  }
+     
+         
+     
+ 
+    
 
     function succussLogin()
     {
-        return view('/home');
+        //return view('/home');
+    //     $user = auth()->user(); 
+	// dd($user->user_type);
     }
 
     function logout()
