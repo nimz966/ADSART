@@ -83,7 +83,7 @@ Route::group(['middleware' => 'auth'], function () {
         $employees = App\Models\User::where('user_type', 'employee')->get()->toArray();
         $data = App\Models\Notice::all();
         return view('employee/employeehome', compact('employees', 'data'));
-        // return view('employee/employeehome')->with('notice', $data);
+        //  return view('employee/employeehome')->with('notice', $data);
     });
     Route::get('/customerhome', function () {
 

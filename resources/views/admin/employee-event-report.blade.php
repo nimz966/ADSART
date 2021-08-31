@@ -34,7 +34,7 @@
                             <th class="cell100 column1">Event Id</th>
                             <th class="cell100 column2">Event Name</th>
                             <th class="cell100 column3">Date</th>
-                            <th class="cell100 column4">Status</th>
+
                             <th class="cell100 column5">Position</th>
                         </tr>
                     </thead>
@@ -50,7 +50,7 @@
                             <td class="cell100 column1">{{ $event['id'] }}</td>
                             <td class="cell100 column2">{{ $event['name'] }}</td>
                             <td class="cell100 column2">{{ $event['date'] }}</td>
-                            <td class="cell100 column2">{{ $event['status'] }}</td>
+
                             <td class="cell100 column2">{{ implode(', ', $event['positions']) }}</td>
                         </tr>
                         @endforeach
@@ -65,14 +65,14 @@
 
 @push('scripts')
 <script>
-    $(document).ready(function() {
-        $('#search').on('click', function() {
-            var employeeId = $('#selectedEmployee').val();
+$(document).ready(function() {
+    $('#search').on('click', function() {
+        var employeeId = $('#selectedEmployee').val();
 
-            if (employeeId === "null") return;
+        if (employeeId === "null") return;
 
-            window.location.replace('/employee-event-report/' + employeeId);
-        })
-    });
+        window.location.replace('/employee-event-report/' + employeeId);
+    })
+});
 </script>
 @endpush
